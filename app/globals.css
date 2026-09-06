@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sora: 'Sora', sans-serif;
+  --font-ibm-plex: 'IBM Plex Sans', sans-serif;
+  --font-lobster: 'Lobster', cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: #0b1c3d;
+  background-color: #ffffff;
+  font-family: var(--font-ibm-plex), sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sora), sans-serif;
+  font-weight: 500;
+}
+
+/* Design Tokens & Atmosphere Classes */
+.hero-gradient {
+  background: linear-gradient(180deg, #0b1c3d 0%, #2f80ed 100%);
+}
+
+.careers-gradient {
+  background: linear-gradient(0deg, rgb(28, 62, 84) 0%, rgb(255, 255, 255) 100%);
+}
+
+.icon-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: #c9d8ee;
+  color: #174076;
+}
+
+.card-slate {
+  background-color: #ebecef;
+  border-radius: 16px;
+  box-shadow: 0px 20px 25px -5px rgba(0, 0, 0, 0.08), 0px 8px 10px -6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-slate:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 25px 30px -5px rgba(0, 0, 0, 0.12), 0px 12px 14px -6px rgba(0, 0, 0, 0.08);
+}

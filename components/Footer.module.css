@@ -1,0 +1,353 @@
+/* Footer — Megicode Blueprint Architecture & Oversized Wordmark */
+
+.footer {
+  position: relative;
+  width: 100%;
+  background: #071228;
+  color: #ffffff;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Top wire: blueprint line with a traveling pulse docking at the right ── */
+.wire {
+  position: relative;
+  height: 2px;
+  background: rgba(47, 128, 237, 0.22);
+}
+
+.wirePulse {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.9);
+  transform: translate(-50%, -50%);
+  animation: wireTravel 6.5s cubic-bezier(0.45, 0.05, 0.35, 1) infinite;
+}
+
+@keyframes wireTravel {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  97%,
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+.wireNode {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 2px solid #38bdf8;
+  background: #071228;
+  transform: translateY(-50%);
+}
+
+/* ── Frame & grid ── */
+.frame {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 56px 32px 28px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .frame {
+    padding: 64px 48px 32px;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+}
+
+@media (min-width: 640px) {
+  .content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content {
+    grid-template-columns: minmax(260px, 1.4fr) minmax(160px, 0.85fr) minmax(160px, 0.85fr) minmax(240px, 1.2fr);
+    gap: 40px;
+  }
+}
+
+/* ── Brand column ── */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.logoLink {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 8px;
+  outline-offset: 4px;
+}
+
+.tagline {
+  max-width: 360px;
+  margin: 0;
+  line-height: 1.65;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.officeInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+  border-left: 2px solid rgba(47, 128, 237, 0.4);
+  padding-left: 12px;
+  margin-top: 4px;
+}
+
+.officeTitle {
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 0.82rem;
+}
+
+/* ── Nav columns ── */
+.navCol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.colTitle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #38bdf8;
+  margin-bottom: 6px;
+}
+
+.navLink {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-decoration: none;
+  width: fit-content;
+  padding: 3px 0;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  color: #38bdf8;
+  transform: translateX(3px);
+}
+
+/* ── Start panel ── */
+.startPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.startCopy {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.cta {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: #2f80ed;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(47, 128, 237, 0.35);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  background: #5899f0;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(47, 128, 237, 0.45);
+}
+
+.contactRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.contactItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contactItem:hover {
+  color: #38bdf8;
+}
+
+.slaBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  width: fit-content;
+}
+
+/* ── Bottom bar ── */
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 44px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 640px) {
+  .bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.copyright {
+  margin: 0;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.bottomLinks {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.bottomLink {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.82rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.bottomLink:hover,
+.bottomLink:focus-visible {
+  color: #38bdf8;
+}
+
+.toTop {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+  color: #38bdf8;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.toTop:hover,
+.toTop:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(47, 128, 237, 0.2);
+  border-color: #38bdf8;
+}
+
+/* ── Megicode Oversized Watermark / Wordmark ── */
+.watermark {
+  position: relative;
+  z-index: 0;
+  margin: 8px 0 -0.32em;
+  text-align: center;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: clamp(3.5rem, 14vw, 10.5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  opacity: 0.04;
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+  text-transform: lowercase;
+}
+
+@media (max-width: 576px) {
+  .watermark {
+    margin: 0 0 -0.3em;
+    font-size: clamp(2.5rem, 15vw, 4.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wirePulse {
+    display: none;
+  }
+}

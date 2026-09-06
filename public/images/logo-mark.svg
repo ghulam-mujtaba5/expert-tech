@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mark-grad-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1c3d"/>
+      <stop offset="100%" stop-color="#174076"/>
+    </linearGradient>
+    <linearGradient id="mark-grad-shield" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#2f80ed"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="mark-grad-t" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+    <filter id="mark-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Rounded Squircle Base -->
+  <rect width="120" height="120" rx="28" fill="url(#mark-grad-bg)" />
+  <rect x="1" y="1" width="118" height="118" rx="27" stroke="#38bdf8" stroke-opacity="0.25" stroke-width="2" />
+
+  <!-- Hexagonal Nexus Shield Emblem -->
+  <g transform="translate(60, 60)">
+    <!-- Hexagon Outer Boundary -->
+    <path d="M0 -42 L36 -21 L36 21 L0 42 L-36 21 L-36 -21 Z" fill="#071228" stroke="url(#mark-grad-shield)" stroke-width="3.5" />
+    
+    <!-- Shield Facets -->
+    <path d="M0 -36 L30 -18 L30 18 L0 36 L-30 18 L-30 -18 Z" fill="url(#mark-grad-shield)" opacity="0.22" />
+
+    <!-- Stylized 'E' Monogram Path -->
+    <path d="M-18 -16 L4 -16 L4 -11 L-10 -11 L-10 -3 L-2 -3 L-2 2 L-10 2 L-10 10 L4 10 L4 15 L-18 15 Z" fill="#ffffff" />
+    
+    <!-- Stylized 'T' Interlocking Monogram Path -->
+    <path d="M-4 -16 L20 -16 L20 -11 L10 -11 L10 15 L5 15 L5 -11 L-4 -11 Z" fill="url(#mark-grad-t)" />
+    
+    <!-- High-Tech Nexus Nodes -->
+    <circle cx="0" cy="0" r="4" fill="#38bdf8" filter="url(#mark-glow)" />
+    <circle cx="0" cy="-42" r="2.5" fill="#38bdf8" />
+    <circle cx="36" cy="0" r="2.5" fill="#38bdf8" />
+    <circle cx="-36" cy="0" r="2.5" fill="#60a5fa" />
+    <circle cx="0" cy="42" r="2.5" fill="#38bdf8" />
+  </g>
+</svg>

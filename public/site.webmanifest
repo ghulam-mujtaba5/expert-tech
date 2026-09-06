@@ -1,0 +1,23 @@
+{
+  "name": "Expert Tech - Managed IT & Cloud",
+  "short_name": "Expert Tech",
+  "icons": [
+    {
+      "src": "/images/logo-mark.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "32x32 48x48",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#0b1c3d",
+  "background_color": "#0b1c3d",
+  "orientation": "portrait-primary",
+  "scope": "/"
+}

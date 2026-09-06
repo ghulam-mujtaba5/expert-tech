@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 56" fill="none" width="100%" height="100%">
+  <defs>
+    <linearGradient id="et-grad-primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#2f80ed"/>
+      <stop offset="100%" stop-color="#174076"/>
+    </linearGradient>
+    <linearGradient id="et-grad-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+    <filter id="et-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Hexagonal Nexus Shield Emblem -->
+  <g transform="translate(6, 4)">
+    <!-- Hexagon Outer Boundary -->
+    <path d="M24 0 L43 11 L43 37 L24 48 L5 37 L5 11 Z" fill="#0b1c3d" stroke="url(#et-grad-primary)" stroke-width="2.5" />
+    
+    <!-- Shield Core Facets -->
+    <path d="M24 3 L40 12.5 L40 35.5 L24 45 L8 35.5 L8 12.5 Z" fill="url(#et-grad-primary)" opacity="0.18" />
+
+    <!-- Stylized 'E' Monogram Path -->
+    <path d="M14 15 L26 15 L26 18 L18 18 L18 22.5 L24 22.5 L24 25.5 L18 25.5 L18 30 L26 30 L26 33 L14 33 Z" fill="#ffffff" />
+    
+    <!-- Stylized 'T' Interlocking Monogram Path & Scottish Saltire Beam -->
+    <path d="M22 15 L35 15 L35 18 L30 18 L30 33 L27 33 L27 18 L22 18 Z" fill="url(#et-grad-cyan)" />
+    
+    <!-- High-Tech Nexus Node (Cyan Accent) -->
+    <circle cx="24" cy="24" r="2.5" fill="#38bdf8" filter="url(#et-glow)" />
+    <circle cx="43" cy="24" r="1.5" fill="#38bdf8" />
+    <circle cx="5" cy="24" r="1.5" fill="#60a5fa" />
+    <circle cx="24" cy="48" r="1.5" fill="#38bdf8" />
+  </g>
+
+  <!-- Typography & Wordmark -->
+  <g transform="translate(64, 0)">
+    <!-- "EXPERT" text -->
+    <text x="0" y="27" fill="#ffffff" font-family="system-ui, -apple-system, 'Sora', sans-serif" font-size="21" font-weight="800" letter-spacing="0.5">EXPERT</text>
+    
+    <!-- "TECH" text with Cyan Accent -->
+    <text x="96" y="27" fill="url(#et-grad-cyan)" font-family="system-ui, -apple-system, 'Sora', sans-serif" font-size="21" font-weight="800" letter-spacing="0.5">TECH</text>
+    
+    <!-- Subtitle Badge: "MANAGED IT & CLOUD" -->
+    <text x="0" y="42" fill="#a1c5f6" font-family="system-ui, -apple-system, 'IBM Plex Sans', sans-serif" font-size="8.5" font-weight="600" letter-spacing="2.8">MANAGED IT &amp; CLOUD</text>
+    
+    <!-- Small Scottish Flag accent dot -->
+    <circle cx="166" cy="22" r="2" fill="#38bdf8" />
+  </g>
+</svg>

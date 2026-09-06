@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none" width="100%" height="100%">
+  <defs>
+    <linearGradient id="seal-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#2f80ed"/>
+      <stop offset="100%" stop-color="#174076"/>
+    </linearGradient>
+    <path id="text-circle-top" d="M 24,80 A 56,56 0 0,1 136,80" />
+    <path id="text-circle-bot" d="M 136,80 A 56,56 0 0,1 24,80" />
+  </defs>
+
+  <!-- Outer Ring -->
+  <circle cx="80" cy="80" r="76" fill="#0b1c3d" stroke="url(#seal-ring)" stroke-width="3"/>
+  <circle cx="80" cy="80" r="70" stroke="#38bdf8" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>
+
+  <!-- Text Top -->
+  <text font-family="system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="700" fill="#ffffff" letter-spacing="1.5">
+    <textPath href="#text-circle-top" startOffset="50%" text-anchor="middle">
+      EXPERT TECH • MANAGED IT
+    </textPath>
+  </text>
+
+  <!-- Text Bottom -->
+  <text font-family="system-ui, -apple-system, sans-serif" font-size="7.5" font-weight="600" fill="#a1c5f6" letter-spacing="1">
+    <textPath href="#text-circle-bot" startOffset="50%" text-anchor="middle">
+      REGISTERED IN SCOTLAND
+    </textPath>
+  </text>
+
+  <!-- Inner Center Shield with Saltire Nexus -->
+  <g transform="translate(80, 80)">
+    <rect x="-24" y="-24" width="48" height="48" rx="10" fill="#174076" stroke="#38bdf8" stroke-width="2"/>
+    <!-- Saltire Cross -->
+    <path d="M-18 -18 L18 18 M-18 18 L18 -18" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Center Node -->
+    <circle cx="0" cy="0" r="6" fill="#2f80ed" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="0" cy="0" r="2.5" fill="#ffffff"/>
+  </g>
+
+  <!-- Five Stars -->
+  <g fill="#ffd166" transform="translate(80, 114) scale(0.65)">
+    <polygon points="0,-7 2,-2 7,-2 3,1 5,6 0,3 -5,6 -3,1 -7,-2 -2,-2"/>
+  </g>
+</svg>
