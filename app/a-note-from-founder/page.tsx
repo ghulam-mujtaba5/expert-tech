@@ -1,14 +1,12 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import {
-  Phone,
-  ArrowRight,
   Quote,
   CheckCircle2,
 } from 'lucide-react';
 import SectionContainer from '@/components/SectionContainer';
 import ServiceIcon from '@/components/ServiceIcon';
+import CtaBanner from '@/components/CtaBanner';
 import { company } from '@/data/company';
 import { founderContent } from '@/data/content';
 
@@ -23,13 +21,19 @@ export default function FounderNotePage() {
 
   return (
     <div className="flex flex-col">
-      {/* Founder Hero Section with Soft Slate Background and Quote Card */}
+      {/* Founder Hero Section with Brand Dark Navy Atmosphere */}
       <section
         id="hero"
-        className="scroll-mt-24 bg-[#ebecef] py-20 text-[#0b1c3d] sm:py-24 lg:py-28"
+        className="relative overflow-hidden bg-[#0b1c3d] py-20 text-white sm:py-24 lg:py-28 border-b border-white/10"
       >
+        {/* Subtle mesh radial glow */}
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#2f80ed]/20 via-transparent to-transparent"
+          aria-hidden="true"
+        />
+
         <SectionContainer>
-          <div className="mx-auto max-w-5xl">
+          <div className="relative mx-auto max-w-5xl">
             <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
               {/* Founder Portrait Container */}
               <div className="flex flex-col items-center justify-center lg:col-span-5 text-center">
@@ -37,34 +41,34 @@ export default function FounderNotePage() {
                   <img
                     src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&h=600&q=80"
                     alt={`${hero.founderName} - Founder of ${company.name}`}
-                    className="h-56 w-56 sm:h-64 sm:w-64 rounded-full object-cover shadow-2xl ring-8 ring-white/60 transition-transform duration-300 hover:scale-105"
+                    className="h-56 w-56 sm:h-64 sm:w-64 rounded-full object-cover shadow-2xl ring-4 ring-[#2f80ed]/40 transition-transform duration-300 hover:scale-105"
                   />
                 </div>
 
-                <h1 className="mt-6 font-heading text-2xl font-bold tracking-tight text-[#0b1c3d] sm:text-3xl">
+                <h1 className="mt-6 font-heading text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   {hero.founderName}
                 </h1>
-                <p className="text-sm font-medium text-[#1d1e20]/80">
+                <p className="text-sm font-medium text-[#a1c5f6]">
                   {hero.founderTitle} • {company.name}
                 </p>
-                <p className="mt-1 text-xs text-[#174076]">
+                <p className="mt-1 text-xs text-white/60">
                   Cowdenbeath, Scotland
                 </p>
               </div>
 
-              {/* Founder Quote Card with Cursive / Display Accent Typography */}
-              <div className="flex flex-col rounded-3xl bg-white/90 p-8 sm:p-10 shadow-xl backdrop-blur-md lg:col-span-7 border border-white/40">
-                <Quote className="h-10 w-10 text-[#2f80ed]/40" />
+              {/* Founder Quote Card with Cursive Accent Typography */}
+              <div className="flex flex-col rounded-3xl bg-white/10 p-8 sm:p-10 shadow-2xl backdrop-blur-md lg:col-span-7 border border-white/15">
+                <Quote className="h-10 w-10 text-[#38bdf8]" />
 
-                <p className="mt-4 text-base leading-relaxed text-[#1d1e20]/90 sm:text-lg">
+                <p className="mt-4 text-base leading-relaxed text-white/90 sm:text-lg">
                   {hero.founderBio}
                 </p>
 
-                <div className="mt-8 border-t border-black/10 pt-6">
-                  <blockquote className="font-accent font-serif italic text-2xl sm:text-3xl text-[#0b1c3d] tracking-normal leading-snug">
+                <div className="mt-8 border-t border-white/15 pt-6">
+                  <blockquote className="font-accent font-serif italic text-2xl sm:text-3xl text-white tracking-normal leading-snug">
                     “{hero.founderQuote}”
                   </blockquote>
-                  <p className="mt-3 text-xs uppercase tracking-widest text-[#174076] font-semibold">
+                  <p className="mt-3 text-xs uppercase tracking-widest text-[#a1c5f6] font-semibold">
                     — {hero.founderName}, Personal Motto
                   </p>
                 </div>
@@ -195,42 +199,16 @@ export default function FounderNotePage() {
         </SectionContainer>
       </section>
 
-      {/* Call to Action Banner */}
-      <section
+      {/* Call to Action Banner using CtaBanner with proper contrast */}
+      <CtaBanner
         id="cta"
-        className="scroll-mt-24 bg-[#2f80ed] py-16 text-white sm:py-20"
-      >
-        <SectionContainer>
-          <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left">
-            <div className="max-w-xl">
-              <h2 className="font-heading text-2xl font-medium text-[#0b1c3d] sm:text-3xl">
-                Ready to Experience Proactive IT Management?
-              </h2>
-              <p className="mt-3 text-base text-[#0b1c3d]/90">
-                Speak directly with our UK-based team to discuss how {company.name} can
-                support and safeguard your infrastructure.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-4 shrink-0">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#0b1c3d] px-6 py-3.5 text-base font-medium text-white shadow-lg transition-all hover:bg-[#174076] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white/50"
-              >
-                <span>Talk to Us</span>
-                <ArrowRight className="h-4 w-4 text-[#2f80ed]" />
-              </Link>
-              <a
-                href={company.telLink || "tel:+447565322806"}
-                className="inline-flex items-center gap-2 rounded-lg bg-white/10 backdrop-blur-sm px-5 py-3.5 text-base font-medium text-white transition-all hover:bg-white/20 border border-white/20"
-              >
-                <Phone className="h-4 w-4" />
-                <span>{company.phone}</span>
-              </a>
-            </div>
-          </div>
-        </SectionContainer>
-      </section>
+        title="Ready to Experience Proactive IT Management?"
+        subtitle={`Speak directly with our UK-based team to discuss how ${company.name} can support and safeguard your infrastructure.`}
+        primaryButtonText="Talk to Us"
+        primaryButtonHref="/contact"
+        showPhoneButton={true}
+        phoneButtonText={company.phoneFormatted}
+      />
     </div>
   );
 }

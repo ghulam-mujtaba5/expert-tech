@@ -5,7 +5,9 @@ import { Suspense } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingCta from '@/components/FloatingCta';
+import BackToTop from '@/components/BackToTop';
 import NavigationProgressBar from '@/components/NavigationProgressBar';
+import Preloader from '@/components/Preloader';
 import { company } from '@/data/company';
 
 const sora = Sora({
@@ -89,6 +91,7 @@ export default function RootLayout({
         <meta charSet="utf-8" />
       </head>
       <body className="flex min-h-screen flex-col bg-white font-sans text-brand-navy antialiased">
+        <Preloader />
         <Suspense fallback={null}>
           <NavigationProgressBar />
         </Suspense>
@@ -97,6 +100,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <BackToTop />
         <FloatingCta />
       </body>
     </html>

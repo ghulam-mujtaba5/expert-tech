@@ -18,25 +18,38 @@ export type ServiceIllusType =
 
 export const LOTTIE_SERVICE_MAP: Record<string, string> = {
   // Direct matching keys
-  support: '/lottie/security-it.json',
-  'it-support': '/lottie/security-it.json',
-  'it-support-&-helpdesk': '/lottie/security-it.json',
+  cybersecurity: '/lottie/security-it.json',
+  'cybersecurity-&-compliance': '/lottie/security-it.json',
+  security: '/lottie/security-it.json',
+  shield: '/lottie/security-it.json',
+
+  'web-dev': '/lottie/web-coding.json',
+  web: '/lottie/web-coding.json',
+  'web-design': '/lottie/web-coding.json',
+  'web-design-&-development': '/lottie/web-coding.json',
+  'custom-web': '/lottie/web-coding.json',
+
   cloud: '/lottie/cloud-devops.json',
   'cloud-solutions': '/lottie/cloud-devops.json',
-  software: '/lottie/web-coding.json',
-  'software-dev': '/lottie/web-coding.json',
-  'software-&-app-development': '/lottie/web-coding.json',
-  'web-dev': '/lottie/14_uiux_web_design.json',
-  web: '/lottie/web-coding.json',
-  cybersecurity: '/lottie/06_cybersecurity_trust.json',
-  shield: '/lottie/06_cybersecurity_trust.json',
+  devops: '/lottie/cloud-devops.json',
+
+  software: '/lottie/mobile-app.json',
+  'software-dev': '/lottie/mobile-app.json',
+  'software-&-app-development': '/lottie/mobile-app.json',
+  mobile: '/lottie/mobile-app.json',
+  'ai-saas-mvp': '/lottie/mobile-app.json',
+
   'network-systems': '/lottie/automation-gears.json',
   network: '/lottie/automation-gears.json',
-  ai: '/lottie/ai-brain.json',
-  mobile: '/lottie/mobile-app.json',
   automation: '/lottie/automation-gears.json',
+
+  support: '/lottie/analytics-data.json',
+  'it-support': '/lottie/analytics-data.json',
+  'it-support-&-helpdesk': '/lottie/analytics-data.json',
+  consulting: '/lottie/analytics-data.json',
+
+  ai: '/lottie/ai-brain.json',
   data: '/lottie/analytics-data.json',
-  consulting: '/lottie/security-it.json',
 };
 
 interface ServiceIllustrationProps {

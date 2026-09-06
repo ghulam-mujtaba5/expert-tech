@@ -59,7 +59,7 @@ export interface ServiceCardProps {
   lottieSrc?: string;
 }
 
-/** Resolves the appropriate Lottie animation JSON file matching Megicode's pack */
+/** Resolves the appropriate high-fidelity Lottie animation JSON file */
 function resolveLottie(
   lottieSrc?: string,
   id?: string,
@@ -70,32 +70,72 @@ function resolveLottie(
 
   const key = `${id || ''} ${typeof icon === 'string' ? icon : ''} ${title || ''}`.toLowerCase();
 
-  if (key.includes('support') || key.includes('helpdesk') || key.includes('consulting')) {
+  // Cybersecurity & Compliance
+  if (
+    key.includes('cyber') ||
+    key.includes('security') ||
+    key.includes('compliance') ||
+    key.includes('shield')
+  ) {
     return '/lottie/security-it.json';
   }
+
+  // Web Design & Development
+  if (
+    key.includes('web-dev') ||
+    key.includes('custom-web') ||
+    key.includes('web design') ||
+    key.includes('web') ||
+    key.includes('ui-ux')
+  ) {
+    return '/lottie/web-coding.json';
+  }
+
+  // Cloud Solutions
   if (key.includes('cloud') || key.includes('devops')) {
     return '/lottie/cloud-devops.json';
   }
-  if (key.includes('software') || key.includes('app dev') || key.includes('smartphone')) {
-    return '/lottie/web-coding.json';
+
+  // Software & App Development
+  if (
+    key.includes('software') ||
+    key.includes('mobile') ||
+    key.includes('app dev') ||
+    key.includes('smartphone') ||
+    key.includes('ai-saas-mvp')
+  ) {
+    return '/lottie/mobile-app.json';
   }
-  if (key.includes('web') || key.includes('design') || key.includes('ui-ux')) {
-    return '/lottie/14_uiux_web_design.json';
-  }
-  if (key.includes('security') || key.includes('shield') || key.includes('compliance')) {
-    return '/lottie/06_cybersecurity_trust.json';
-  }
-  if (key.includes('network') || key.includes('automation') || key.includes('systems')) {
+
+  // Network & Systems Architecture
+  if (
+    key.includes('network') ||
+    key.includes('systems') ||
+    key.includes('automation')
+  ) {
     return '/lottie/automation-gears.json';
   }
+
+  // IT Support & Helpdesk / Proactive Monitoring
+  if (
+    key.includes('support') ||
+    key.includes('helpdesk') ||
+    key.includes('consulting')
+  ) {
+    return '/lottie/analytics-data.json';
+  }
+
+  // Data & Analytics
   if (key.includes('data') || key.includes('analytics')) {
     return '/lottie/analytics-data.json';
   }
+
+  // AI & Automation
   if (key.includes('ai') || key.includes('brain')) {
     return '/lottie/ai-brain.json';
   }
 
-  return '/lottie/security-it.json';
+  return '/lottie/web-coding.json';
 }
 
 export default function ServiceCard({

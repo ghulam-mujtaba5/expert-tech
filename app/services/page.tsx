@@ -1,12 +1,11 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import {
-  Phone,
-  ArrowRight,
-} from 'lucide-react';
+import { ArrowRight, Phone } from 'lucide-react';
 import SectionContainer from '@/components/SectionContainer';
+import HeroSection from '@/components/HeroSection';
 import ServiceCard from '@/components/ServiceCard';
+import CtaBanner from '@/components/CtaBanner';
+import FaqAccordion from '@/components/FaqAccordion';
 import { company } from '@/data/company';
 import { servicesContent } from '@/data/content';
 
@@ -23,6 +22,7 @@ const detailedServices = [
     description:
       'Crafting bespoke web applications and platforms that drive business growth and user engagement.',
     icon: 'custom-web' as const,
+    lottieSrc: '/lottie/web-coding.json',
     badge: 'Custom Engineering',
     features: [
       'Responsive Next.js & modern frontend apps',
@@ -37,6 +37,7 @@ const detailedServices = [
     description:
       'Proactive monitoring and rapid response to ensure your systems run smoothly, minimizing downtime.',
     icon: 'consulting' as const,
+    lottieSrc: '/lottie/analytics-data.json',
     badge: 'Rapid Response',
     features: [
       '15-minute guaranteed emergency response SLA',
@@ -51,6 +52,7 @@ const detailedServices = [
     description:
       'Custom software solutions and mobile apps tailored to optimize your unique operational workflows.',
     icon: 'ai-saas-mvp' as const,
+    lottieSrc: '/lottie/mobile-app.json',
     badge: 'Digital Transformation',
     features: [
       'Bespoke CRM & internal automation tools',
@@ -65,6 +67,7 @@ const detailedServices = [
     description:
       'Secure and scalable cloud migrations, management, and optimization for modern business agility.',
     icon: 'cloud-devops' as const,
+    lottieSrc: '/lottie/cloud-devops.json',
     badge: 'Cloud Agility',
     features: [
       'AWS, Microsoft Azure & private cloud hosting',
@@ -79,6 +82,7 @@ const detailedServices = [
     description:
       'Multi-layered perimeter defense, vulnerability audits, and UK regulatory compliance to protect corporate data.',
     icon: 'ai-automation' as const,
+    lottieSrc: '/lottie/security-it.json',
     badge: 'UK Compliance',
     features: [
       'Cyber Essentials & UK GDPR alignment',
@@ -93,6 +97,7 @@ const detailedServices = [
     description:
       'Robust corporate network infrastructure and unified communications designed for enterprise uptime.',
     icon: 'data-analytics' as const,
+    lottieSrc: '/lottie/automation-gears.json',
     badge: 'Enterprise Infrastructure',
     features: [
       'Enterprise Wi-Fi & structured office cabling',
@@ -135,44 +140,24 @@ export default function ServicesPage() {
 
   return (
     <div className="flex flex-col">
-      {/* Services Hero Section */}
-      <section
+      {/* Services Hero Section using unified HeroSection */}
+      <HeroSection
         id="services-hero"
-        className="relative overflow-hidden bg-[#0b1c3d] py-20 text-white sm:py-28 lg:py-32 border-b border-white/10"
-      >
-        <SectionContainer>
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#a1c5f6]">
-              {hero.overline}
-            </span>
-
-            <h1 className="mt-6 font-heading text-4xl font-medium tracking-tight text-white sm:text-5xl lg:text-6xl">
-              {hero.title}
-            </h1>
-
-            <p className="mt-6 text-lg leading-relaxed text-white/90 sm:text-xl">
-              {hero.subtitle}
-            </p>
-
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#2f80ed] px-6 py-3.5 text-base font-medium text-white shadow-lg transition-all hover:bg-[#5899f0] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white/50"
-              >
-                <span>Request a Quote</span>
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <a
-                href={company.telLink || "tel:+447565322806"}
-                className="inline-flex items-center gap-2 rounded-lg bg-[#ebecef] px-6 py-3.5 text-base font-medium text-black shadow transition-all hover:bg-[#bcbcbf] focus:outline-none focus:ring-2 focus:ring-black/20"
-              >
-                <Phone className="h-4 w-4 text-[#174076]" />
-                <span>{company.phone}</span>
-              </a>
-            </div>
-          </div>
-        </SectionContainer>
-      </section>
+        badge={hero.overline}
+        title={hero.title}
+        subtitle={hero.subtitle}
+        primaryCta={{
+          text: 'Request a Quote',
+          href: '/contact',
+          icon: <ArrowRight className="h-4 w-4" />,
+        }}
+        secondaryCta={{
+          text: company.phoneFormatted,
+          href: company.telLink,
+          icon: <Phone className="h-4 w-4" />,
+        }}
+        background="navy"
+      />
 
       {/* Comprehensive IT Solutions 6-Card Grid */}
       <section id="grid" className="scroll-mt-24 bg-white py-20 sm:py-24 lg:py-32">
@@ -197,6 +182,7 @@ export default function ServicesPage() {
                 title={service.title}
                 description={service.description}
                 icon={service.icon}
+                lottieSrc={service.lottieSrc}
                 index={idx}
                 badge={service.badge}
                 features={service.features}
@@ -250,41 +236,19 @@ export default function ServicesPage() {
         </SectionContainer>
       </section>
 
-      {/* Quote / Discovery Call CTA Banner */}
-      <section
-        id="cta"
-        className="scroll-mt-24 bg-[#2f80ed] py-16 text-white sm:py-20"
-      >
-        <SectionContainer>
-          <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left">
-            <div className="max-w-xl">
-              <h2 className="font-heading text-2xl font-medium text-white sm:text-3xl">
-                {ctaBanner.title}
-              </h2>
-              <p className="mt-3 text-base text-white/90">
-                {ctaBanner.subtitle}
-              </p>
-            </div>
+      {/* Frequently Asked Questions Accordion */}
+      <FaqAccordion />
 
-            <div className="flex flex-wrap items-center justify-center gap-4 shrink-0">
-              <Link
-                href={ctaBanner.href}
-                className="inline-flex items-center gap-2 rounded-lg bg-[#0b1c3d] px-6 py-3.5 text-base font-medium text-white shadow-lg transition-all hover:bg-[#174076] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white/50"
-              >
-                <span>{ctaBanner.buttonText}</span>
-                <ArrowRight className="h-4 w-4 text-[#2f80ed]" />
-              </Link>
-              <a
-                href={company.telLink || "tel:+447565322806"}
-                className="inline-flex items-center gap-2 rounded-lg bg-white/10 backdrop-blur-sm px-5 py-3.5 text-base font-medium text-white transition-all hover:bg-white/20 border border-white/20"
-              >
-                <Phone className="h-4 w-4" />
-                <span>{company.phone}</span>
-              </a>
-            </div>
-          </div>
-        </SectionContainer>
-      </section>
+      {/* Quote / Discovery Call CTA Banner */}
+      <CtaBanner
+        id="cta"
+        title={ctaBanner.title}
+        subtitle={ctaBanner.subtitle}
+        primaryButtonText={ctaBanner.buttonText}
+        primaryButtonHref={ctaBanner.href}
+        showPhoneButton={true}
+        phoneButtonText={company.phoneFormatted}
+      />
     </div>
   );
 }

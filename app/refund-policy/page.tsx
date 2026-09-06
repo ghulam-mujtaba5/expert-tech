@@ -1,8 +1,10 @@
 import React from 'react';
 import SectionContainer from '@/components/SectionContainer';
+import HeroSection from '@/components/HeroSection';
+import CtaBanner from '@/components/CtaBanner';
 import { company } from '@/data/company';
 import { refundPolicyContent } from '@/data/content';
-import { ShieldCheck, FileText, CheckCircle2, Clock, Mail, Scale } from 'lucide-react';
+import { Clock, Mail, Scale } from 'lucide-react';
 
 export const metadata = {
   title: 'Refund & Cancellation Policy | Expert Tech',
@@ -15,42 +17,29 @@ export default function RefundPolicyPage() {
 
   return (
     <div className="flex flex-col bg-white text-[#0b1c3d]">
-      {/* Policy Hero */}
-      <section
+      {/* Brand Hero Section */}
+      <HeroSection
         id="hero"
-        className="relative overflow-hidden bg-[#0b1c3d] py-16 text-white sm:py-24"
+        badge={hero.overline}
+        title={hero.title}
+        subtitle={hero.subtitle}
+        background="navy"
       >
-        <SectionContainer>
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#a1c5f6]">
-              {hero.overline}
-            </span>
-
-            <h1 className="mt-6 font-heading text-3xl font-medium tracking-tight text-white sm:text-4xl lg:text-5xl">
-              {hero.title}
-            </h1>
-
-            <p className="mt-4 text-base leading-relaxed text-white/80 sm:text-lg">
-              {hero.subtitle}
-            </p>
-
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs text-white/60">
-              <span className="flex items-center gap-1.5">
-                <Scale className="h-4 w-4 text-[#2f80ed]" />
-                Governing Law: Scotland, UK
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Clock className="h-4 w-4 text-[#2f80ed]" />
-                Standard Resolution SLA: 10 working days
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Mail className="h-4 w-4 text-[#2f80ed]" />
-                Official Inquiries: {company.email}
-              </span>
-            </div>
-          </div>
-        </SectionContainer>
-      </section>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-white/70">
+          <span className="flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 backdrop-blur-sm border border-white/10">
+            <Scale className="h-3.5 w-3.5 text-[#38bdf8]" />
+            Governing Law: Scotland, UK
+          </span>
+          <span className="flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 backdrop-blur-sm border border-white/10">
+            <Clock className="h-3.5 w-3.5 text-[#38bdf8]" />
+            Standard Resolution SLA: 10 working days
+          </span>
+          <span className="flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 backdrop-blur-sm border border-white/10">
+            <Mail className="h-3.5 w-3.5 text-[#38bdf8]" />
+            Official Inquiries: {company.email}
+          </span>
+        </div>
+      </HeroSection>
 
       {/* 7 Structured Legal Sections */}
       <section id="policy-content" className="py-16 sm:py-24">
@@ -196,6 +185,17 @@ export default function RefundPolicyPage() {
           </div>
         </SectionContainer>
       </section>
+
+      {/* Reusable Bottom CTA Banner */}
+      <CtaBanner
+        id="cta"
+        title="Have questions regarding our service agreements?"
+        subtitle="Our team is available to discuss contract terms, milestone definitions, or project specifications in complete transparency."
+        primaryButtonText="Contact Support"
+        primaryButtonHref="/contact"
+        showPhoneButton={true}
+        phoneButtonText={company.phoneFormatted}
+      />
     </div>
   );
 }

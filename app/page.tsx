@@ -1,9 +1,9 @@
 import React from 'react';
-import Link from 'next/link';
-import { Phone, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import SectionContainer from '@/components/SectionContainer';
 import HeroSection from '@/components/HeroSection';
 import ServiceCard from '@/components/ServiceCard';
+import CtaBanner from '@/components/CtaBanner';
 import { company } from '@/data/company';
 import { homeContent } from '@/data/content';
 
@@ -15,6 +15,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <HeroSection
         id="hero"
+        badge={hero.badge}
         titlePrefix={hero.titlePrefix}
         titleHighlight={hero.titleHighlight}
         subtitle={hero.subtitle}
@@ -66,31 +67,15 @@ export default function HomePage() {
       </section>
 
       {/* Discovery Call CTA Banner */}
-      <section
+      <CtaBanner
         id="cta"
-        className="scroll-mt-24 bg-[#2f80ed] py-16 text-white sm:py-20"
-      >
-        <SectionContainer>
-          <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left">
-            <div className="max-w-xl">
-              <h2 className="font-heading text-2xl font-medium text-white sm:text-3xl">
-                {ctaBanner.title}
-              </h2>
-              <p className="mt-3 text-base text-white/90">
-                {ctaBanner.subtitle}
-              </p>
-            </div>
-
-            <a
-              href={ctaBanner.telLink || company.telLink || "tel:+447565322806"}
-              className="inline-flex shrink-0 items-center gap-2.5 rounded-lg bg-[#0b1c3d] px-6 py-3.5 text-base font-medium text-white shadow-lg transition-all hover:bg-[#174076] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white/50"
-            >
-              <Phone className="h-5 w-5 text-[#2f80ed]" />
-              <span>{ctaBanner.buttonText}</span>
-            </a>
-          </div>
-        </SectionContainer>
-      </section>
+        title={ctaBanner.title}
+        subtitle={ctaBanner.subtitle}
+        primaryButtonText={ctaBanner.buttonText}
+        primaryButtonHref={ctaBanner.telLink || company.telLink}
+        showPhoneButton={true}
+        phoneButtonText={company.phoneFormatted}
+      />
     </div>
   );
 }

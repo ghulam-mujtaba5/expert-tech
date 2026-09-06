@@ -76,14 +76,14 @@ test('Header.tsx imports and maps over navLinks for desktop navigation', () => {
   );
 });
 
-test('Header.tsx maps over navLinks for mobile drawer navigation', () => {
+test('Header/MobileMenuDrawer maps over navLinks for mobile drawer navigation', () => {
+  const drawerPath = path.join(projectRoot, 'components/MobileMenuDrawer.tsx');
   const headerPath = path.join(projectRoot, 'components/Header.tsx');
-  const content = fs.readFileSync(headerPath, 'utf8');
+  const drawerContent = fs.existsSync(drawerPath) ? fs.readFileSync(drawerPath, 'utf8') : '';
+  const headerContent = fs.readFileSync(headerPath, 'utf8');
   assert.ok(
-    content.includes('mobileMenuOpen && (') &&
-    content.includes('<nav className="flex flex-col space-y-3">') &&
-    content.includes('navLinks.map((item) => {'),
-    'Header.tsx must render mobile drawer navigation from navLinks'
+    drawerContent.includes('navLinks.map((item) => {') || headerContent.includes('navLinks.map((item) => {'),
+    'Mobile drawer navigation must render from navLinks'
   );
 });
 

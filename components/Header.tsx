@@ -70,22 +70,22 @@ export default function Header() {
           </nav>
 
           {/* Desktop Header CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4 shrink-0 ml-3 xl:ml-6">
             <a
               href={company.telLink}
-              className="flex items-center gap-2 rounded-xl bg-[#2f80ed] px-4.5 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-[#5899f0] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#38bdf8] focus:ring-offset-2 focus:ring-offset-[#0b1c3d]"
+              className="flex items-center justify-center gap-2.5 rounded-xl bg-[#2f80ed] px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-[#5899f0] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#38bdf8] focus:ring-offset-2 focus:ring-offset-[#0b1c3d] shrink-0 whitespace-nowrap min-w-[190px]"
             >
-              <Phone className="h-4 w-4" />
-              <span>{company.phoneFormatted}</span>
+              <Phone className="h-4 w-4 shrink-0" />
+              <span className="tracking-wide whitespace-nowrap">{company.phoneFormatted}</span>
               <span className="sr-only">{company.phone}</span>
             </a>
           </div>
 
           {/* Mobile Actions: Phone Call Button + Hamburger Drawer Toggle */}
-          <div className="flex items-center gap-2 sm:gap-3 lg:hidden">
+          <div className="flex items-center gap-2 sm:gap-3 lg:hidden shrink-0">
             <a
               href={company.telLink}
-              className="flex h-11 w-11 min-h-[44px] min-w-[44px] sm:w-auto sm:px-3.5 sm:gap-2 items-center justify-center rounded-xl bg-[#2f80ed] text-white shadow-md transition-all hover:bg-[#5899f0] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#38bdf8]"
+              className="flex h-11 w-11 min-h-[44px] min-w-[44px] sm:w-auto sm:px-4 sm:py-2 sm:gap-2.5 items-center justify-center rounded-xl bg-[#2f80ed] text-white shadow-md transition-all hover:bg-[#5899f0] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#38bdf8] shrink-0"
               aria-label={`Call ${company.name} at ${company.phoneFormatted}`}
               title={`Call ${company.phoneFormatted}`}
             >
