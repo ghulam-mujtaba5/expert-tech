@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -123,16 +122,9 @@ export default function MobileMenuDrawer({ isOpen, onClose }: MobileMenuDrawerPr
                 className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#2f80ed] rounded-lg p-1"
                 aria-label={`${company.name} Home`}
               >
-                <div className="relative h-8 w-32 sm:h-9 sm:w-36">
-                  <Image
-                    src="/logo-white.svg"
-                    alt={company.name}
-                    fill
-                    sizes="150px"
-                    className="object-contain object-left"
-                    priority
-                  />
-                </div>
+                <span className="font-heading text-lg sm:text-xl font-bold tracking-tight text-white">
+                  EXPERT <span className="text-[#2f80ed]">TECH</span>
+                </span>
               </Link>
 
               {/* Close Button with 44px min touch target */}

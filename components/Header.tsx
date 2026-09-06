@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Phone } from 'lucide-react';
 import { company, navLinks } from '@/data/company';
@@ -38,16 +37,9 @@ export default function Header() {
             className="flex items-center gap-2 transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[#2f80ed] rounded-lg p-1 shrink-0"
             aria-label={`${company.name} Home`}
           >
-            <div className="relative h-9 w-36 sm:h-10 sm:w-44 md:h-11 md:w-48">
-              <Image
-                src="/logo-white.svg"
-                alt={company.name}
-                fill
-                sizes="(max-width: 640px) 144px, 200px"
-                className="object-contain object-left"
-                priority
-              />
-            </div>
+            <span className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-white transition-colors hover:text-[#38bdf8]">
+              EXPERT <span className="text-[#2f80ed]">TECH</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation Links */}
