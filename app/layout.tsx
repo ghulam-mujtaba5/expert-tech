@@ -1,9 +1,12 @@
 import type { Metadata, Viewport } from 'next';
 import { Sora, IBM_Plex_Sans, Lobster } from 'next/font/google';
 import './globals.css';
+import { Suspense } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingCta from '@/components/FloatingCta';
+import Preloader from '@/components/Preloader';
+import NavigationProgressBar from '@/components/NavigationProgressBar';
 import { company } from '@/data/company';
 
 const sora = Sora({
@@ -87,6 +90,10 @@ export default function RootLayout({
         <meta charSet="utf-8" />
       </head>
       <body className="flex min-h-screen flex-col bg-white font-sans text-brand-navy antialiased">
+        <Preloader />
+        <Suspense fallback={null}>
+          <NavigationProgressBar />
+        </Suspense>
         <Header />
         <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
           {children}
