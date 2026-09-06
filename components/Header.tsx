@@ -12,6 +12,14 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  const handleCloseMenu = React.useCallback(() => {
+    setMobileMenuOpen(false);
+  }, []);
+
+  const handleToggleMenu = React.useCallback(() => {
+    setMobileMenuOpen((prev) => !prev);
+  }, []);
+
   return (
     <>
       {/* WCAG 2.1 AA Skip to Content link */}
@@ -98,16 +106,31 @@ export default function Header() {
             {/* Mobile Menu Hamburger Toggle Button */}
             <button
               type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={handleToggleMenu}
               className="group relative flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl bg-white/10 text-white/90 transition-all hover:bg-white/20 hover:text-white active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#38bdf8]"
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation-drawer"
-              aria-label="Open navigation menu"
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              title="Open or close navigation menu"
             >
               <div className="flex flex-col items-center justify-center gap-1.5 w-5 sm:w-6">
-                <span className="block h-0.5 w-5 sm:w-6 rounded-full bg-white transition-all group-hover:bg-[#38bdf8]" />
-                <span className="block h-0.5 w-5 sm:w-6 rounded-full bg-white transition-all group-hover:bg-[#38bdf8]" />
-                <span className="block h-0.5 w-3.5 sm:w-4 self-start rounded-full bg-[#38bdf8] transition-all group-hover:w-full" />
+                <span
+                  className={`block h-0.5 w-5 sm:w-6 rounded-full bg-white transition-all duration-200 ${
+                    mobileMenuOpen ? 'translate-y-2 rotate-45' : 'group-hover:bg-[#38bdf8]'
+                  }`}
+                />
+                <span
+                  className={`block h-0.5 w-5 sm:w-6 rounded-full bg-white transition-all duration-200 ${
+                    mobileMenuOpen ? 'opacity-0' : 'group-hover:bg-[#38bdf8]'
+                  }`}
+                />
+                <span
+                  className={`block h-0.5 rounded-full bg-[#38bdf8] transition-all duration-200 ${
+                    mobileMenuOpen
+                      ? 'w-5 sm:w-6 -translate-y-2 -rotate-45'
+                      : 'w-3.5 sm:w-4 self-start group-hover:w-full'
+                  }`}
+                />
               </div>
             </button>
           </div>
@@ -117,23 +140,8 @@ export default function Header() {
       {/* Dedicated Mobile Menu Drawer rendered outside header to avoid backdrop-filter trap */}
       <MobileMenuDrawer
         isOpen={mobileMenuOpen}
-        onClose={() => setMobileMenuOpen(false)}
+        onClose={handleCloseMenu}
       />
-
-      {/* Mobile drawer navigation structure */}
-      {mobileMenuOpen && (
-        <div className="sr-only lg:hidden" aria-hidden="true">
-          <nav className="flex flex-col space-y-3">
-            {navLinks.map((item) => {
-              return (
-                <Link key={item.href} href={item.href} onClick={() => setMobileMenuOpen(false)}>
-                  {item.name}
-                </Link>
-              );
-            })}
-          </nav>
-        </div>
-      )}
     </>
   );
 }

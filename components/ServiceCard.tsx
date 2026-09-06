@@ -13,6 +13,7 @@ import {
   ArrowRight,
   LucideIcon,
 } from 'lucide-react';
+import ServiceIcon from './ServiceIcon';
 import styles from './ServiceCard.module.css';
 
 export type ServiceIconType =
@@ -21,9 +22,19 @@ export type ServiceIconType =
   | 'code'
   | 'phone'
   | 'smartphone'
-  | 'shield';
+  | 'shield'
+  | 'custom-web'
+  | 'consulting'
+  | 'ai-saas-mvp'
+  | 'cloud-devops'
+  | 'ai-automation'
+  | 'data-analytics'
+  | 'growth-marketing'
+  | 'mobile-app'
+  | 'ui-ux'
+  | string;
 
-const iconMap: Record<ServiceIconType, LucideIcon> = {
+const iconMap: Record<string, LucideIcon> = {
   users: Users,
   cloud: Cloud,
   code: Code,
@@ -43,6 +54,7 @@ export interface ServiceCardProps {
   badge?: string;
   className?: string;
   compact?: boolean;
+  index?: number;
 }
 
 export default function ServiceCard({
@@ -55,9 +67,10 @@ export default function ServiceCard({
   linkLabel = 'Learn more',
   badge,
   className = '',
+  index = 0,
 }: ServiceCardProps) {
-  const IconComponent =
-    typeof icon === 'string' ? iconMap[icon] || Code : icon;
+  const isStringIcon = typeof icon === 'string';
+  const IconComponent = !isStringIcon ? icon : iconMap[icon] || Code;
 
   return (
     <div
@@ -66,13 +79,17 @@ export default function ServiceCard({
     >
       <div className={styles.cardBody}>
         <div>
-          {/* Header row: Icon Box & Optional Category */}
+          {/* Header row: 3D Illustration Icon & Optional Badge */}
           <div className="flex items-center justify-between">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#c9d8ee] text-[#174076] transition-transform duration-200 group-hover:scale-105 shadow-sm">
-              <IconComponent className="h-6 w-6 stroke-[#174076]" />
-            </div>
+            {isStringIcon ? (
+              <ServiceIcon slug={icon} index={index} />
+            ) : (
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#c9d8ee]/60 text-[#174076] transition-transform duration-200 group-hover:scale-105 shadow-sm border border-[#174076]/10">
+                <IconComponent className="h-7 w-7 stroke-[#174076]" />
+              </div>
+            )}
             {badge && (
-              <span className="rounded-md bg-white/80 px-2.5 py-1 text-xs font-semibold text-[#174076] shadow-sm border border-black/5">
+              <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[#174076] shadow-sm border border-black/5 tracking-wide">
                 {badge}
               </span>
             )}

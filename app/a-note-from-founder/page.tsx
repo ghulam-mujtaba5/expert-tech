@@ -2,15 +2,13 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
-  UserCheck,
-  BookOpen,
-  Shield,
   Phone,
   ArrowRight,
   Quote,
   CheckCircle2,
 } from 'lucide-react';
 import SectionContainer from '@/components/SectionContainer';
+import ServiceIcon from '@/components/ServiceIcon';
 import { company } from '@/data/company';
 import { founderContent } from '@/data/content';
 
@@ -168,22 +166,15 @@ export default function FounderNotePage() {
           </div>
 
           <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
-            {principles.items.map((item) => {
-              const IconComp =
-                item.icon === 'user-check'
-                  ? UserCheck
-                  : item.icon === 'book-open'
-                  ? BookOpen
-                  : Shield;
-
+            {principles.items.map((item, idx) => {
               return (
                 <div
                   key={item.id}
-                  className="group relative flex flex-col justify-between rounded-2xl bg-[#ebecef] p-8 shadow-card transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                  className="group relative flex flex-col justify-between rounded-2xl bg-[#ebecef] p-8 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl border border-black/5"
                 >
                   <div>
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#c9d8ee] text-[#174076] transition-transform duration-200 group-hover:scale-110">
-                      <IconComp className="h-6 w-6 stroke-[#174076]" />
+                    <div className="mb-2">
+                      <ServiceIcon slug={item.id} index={idx} size={54} />
                     </div>
                     <h3 className="mt-6 font-heading text-xl font-medium text-[#0b1c3d]">
                       {item.title}

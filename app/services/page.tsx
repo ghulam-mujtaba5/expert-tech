@@ -2,16 +2,8 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
-  Code,
   Phone,
-  Smartphone,
-  Cloud,
-  Shield,
-  Users,
-  CheckCircle2,
   ArrowRight,
-  Sparkles,
-  Layers,
 } from 'lucide-react';
 import SectionContainer from '@/components/SectionContainer';
 import ServiceCard from '@/components/ServiceCard';
@@ -30,7 +22,7 @@ const detailedServices = [
     title: 'Web Design & Development',
     description:
       'Crafting bespoke web applications and platforms that drive business growth and user engagement.',
-    icon: 'code' as const,
+    icon: 'custom-web' as const,
     badge: 'Custom Engineering',
     features: [
       'Responsive Next.js & modern frontend apps',
@@ -44,7 +36,7 @@ const detailedServices = [
     title: 'IT Support & Helpdesk',
     description:
       'Proactive monitoring and rapid response to ensure your systems run smoothly, minimizing downtime.',
-    icon: 'phone' as const,
+    icon: 'consulting' as const,
     badge: 'Rapid Response',
     features: [
       '15-minute guaranteed emergency response SLA',
@@ -58,7 +50,7 @@ const detailedServices = [
     title: 'Software & App Development',
     description:
       'Custom software solutions and mobile apps tailored to optimize your unique operational workflows.',
-    icon: 'smartphone' as const,
+    icon: 'ai-saas-mvp' as const,
     badge: 'Digital Transformation',
     features: [
       'Bespoke CRM & internal automation tools',
@@ -72,7 +64,7 @@ const detailedServices = [
     title: 'Cloud Solutions',
     description:
       'Secure and scalable cloud migrations, management, and optimization for modern business agility.',
-    icon: 'cloud' as const,
+    icon: 'cloud-devops' as const,
     badge: 'Cloud Agility',
     features: [
       'AWS, Microsoft Azure & private cloud hosting',
@@ -86,7 +78,7 @@ const detailedServices = [
     title: 'Cybersecurity & Compliance',
     description:
       'Multi-layered perimeter defense, vulnerability audits, and UK regulatory compliance to protect corporate data.',
-    icon: 'shield' as const,
+    icon: 'ai-automation' as const,
     badge: 'UK Compliance',
     features: [
       'Cyber Essentials & UK GDPR alignment',
@@ -100,7 +92,7 @@ const detailedServices = [
     title: 'Network & Systems Architecture',
     description:
       'Robust corporate network infrastructure and unified communications designed for enterprise uptime.',
-    icon: 'users' as const,
+    icon: 'data-analytics' as const,
     badge: 'Enterprise Infrastructure',
     features: [
       'Enterprise Wi-Fi & structured office cabling',
@@ -198,13 +190,14 @@ export default function ServicesPage() {
           </div>
 
           <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {detailedServices.map((service) => (
+            {detailedServices.map((service, idx) => (
               <ServiceCard
                 key={service.id}
                 id={`service-${service.id}`}
                 title={service.title}
                 description={service.description}
                 icon={service.icon}
+                index={idx}
                 badge={service.badge}
                 features={service.features}
                 linkHref="/contact"

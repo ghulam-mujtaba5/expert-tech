@@ -39,11 +39,17 @@ const navIcons: Record<string, React.ElementType> = {
 export default function MobileMenuDrawer({ isOpen, onClose }: MobileMenuDrawerProps) {
   const pathname = usePathname();
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const prevPathname = useRef(pathname);
 
-  // Close drawer on route change
+  // Close drawer ONLY when route actually changes
   useEffect(() => {
-    onClose();
-  }, [pathname, onClose]);
+    if (prevPathname.current !== pathname) {
+      prevPathname.current = pathname;
+      if (isOpen) {
+        onClose();
+      }
+    }
+  }, [pathname, isOpen, onClose]);
 
   // Lock body scroll and set focus when opened
   useEffect(() => {
@@ -53,12 +59,23 @@ export default function MobileMenuDrawer({ isOpen, onClose }: MobileMenuDrawerPr
         closeButtonRef.current?.focus();
       }, 50);
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     };
   }, [isOpen]);
+
+  // Close drawer automatically if viewport resized to desktop (>= 1024px)
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024 && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isOpen, onClose]);
 
   // Handle ESC key press (WCAG 2.1 modal dismissal)
   useEffect(() => {
@@ -82,19 +99,20 @@ export default function MobileMenuDrawer({ isOpen, onClose }: MobileMenuDrawerPr
             exit={{ opacity: 0 }}
             transition={{ duration: 0.22 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/80 backdrop-blur-md"
+            className="fixed inset-0 bg-black/80 backdrop-blur-md cursor-pointer"
             aria-hidden="true"
           />
 
           {/* Slide-out Drawer Panel (Width Safe for 320px screens) */}
           <motion.div
+            id="mobile-navigation-drawer"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile Navigation Menu"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+            transition={{ type: 'spring', damping: 28, stiffness: 260 }}
             className="fixed inset-y-0 right-0 z-[101] flex h-full h-[100dvh] w-full max-w-[340px] sm:max-w-sm flex-col bg-[#071228] text-white shadow-2xl border-l border-white/10"
           >
             {/* Drawer Header */}

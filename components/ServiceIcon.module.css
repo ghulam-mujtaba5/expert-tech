@@ -1,0 +1,60 @@
+.iconWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  min-width: 76px;
+  border-radius: 20px;
+  overflow: visible;
+  will-change: transform;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  box-shadow: 0 8px 20px -6px rgba(11, 28, 61, 0.08);
+}
+
+/* Soft accent glow behind the 3D illustration — intensifies on hover */
+.glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  opacity: 0;
+  filter: blur(16px);
+  transform: scale(0.85);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+:global(.group:hover) .glow,
+.iconWrap:hover .glow {
+  opacity: 0.32;
+  transform: scale(1.12);
+}
+
+.iconInner {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  filter: drop-shadow(0 4px 10px rgba(11, 28, 61, 0.12));
+}
+
+@media (max-width: 640px) {
+  .iconWrap {
+    width: 68px;
+    height: 68px;
+    min-width: 68px;
+    border-radius: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iconWrap,
+  .glow,
+  .iconInner {
+    transition: none;
+  }
+}

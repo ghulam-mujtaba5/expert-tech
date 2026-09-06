@@ -4,7 +4,23 @@ export interface ServiceItem {
   id: string;
   title: string;
   description: string;
-  icon: 'users' | 'cloud' | 'code' | 'phone' | 'smartphone' | 'shield';
+  icon:
+    | 'users'
+    | 'cloud'
+    | 'code'
+    | 'phone'
+    | 'smartphone'
+    | 'shield'
+    | 'custom-web'
+    | 'consulting'
+    | 'ai-saas-mvp'
+    | 'cloud-devops'
+    | 'ai-automation'
+    | 'data-analytics'
+    | 'growth-marketing'
+    | 'mobile-app'
+    | 'ui-ux'
+    | string;
 }
 
 export interface ValueItem {
@@ -41,19 +57,19 @@ export const homeContent = {
         id: "support",
         title: "IT Support & Helpdesk",
         description: "Proactive monitoring and rapid response to keep your operations smooth and secure.",
-        icon: "users" as const,
+        icon: "consulting" as const,
       },
       {
         id: "cloud",
         title: "Cloud Solutions",
         description: "Seamless migration, deployment, and management of scalable cloud infrastructure.",
-        icon: "cloud" as const,
+        icon: "cloud-devops" as const,
       },
       {
         id: "software",
         title: "Software & App Development",
         description: "Custom applications and integrations designed to streamline your unique business processes.",
-        icon: "code" as const,
+        icon: "ai-saas-mvp" as const,
       },
     ],
   },
@@ -77,25 +93,25 @@ export const servicesContent = {
       id: "web-dev",
       title: "Web Design & Development",
       description: "Crafting bespoke web applications and platforms that drive business growth and user engagement.",
-      icon: "code" as const,
+      icon: "custom-web" as const,
     },
     {
       id: "it-support",
       title: "IT Support & Helpdesk",
       description: "Proactive monitoring and rapid response to ensure your systems run smoothly, minimizing downtime.",
-      icon: "phone" as const,
+      icon: "consulting" as const,
     },
     {
       id: "software-dev",
       title: "Software & App Development",
       description: "Custom software solutions and mobile apps tailored to optimize your unique operational workflows.",
-      icon: "smartphone" as const,
+      icon: "ai-saas-mvp" as const,
     },
     {
       id: "cloud-solutions",
       title: "Cloud Solutions",
       description: "Secure and scalable cloud migrations, management, and optimization for modern business agility.",
-      icon: "cloud" as const,
+      icon: "cloud-devops" as const,
     },
   ],
   ctaBanner: {

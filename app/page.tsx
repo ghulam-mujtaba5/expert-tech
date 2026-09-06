@@ -49,13 +49,14 @@ export default function HomePage() {
           </div>
 
           <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
-            {solutions.items.map((item) => (
+            {solutions.items.map((item, idx) => (
               <ServiceCard
                 key={item.id}
                 id={`card-${item.id}`}
                 title={item.title}
                 description={item.description}
                 icon={item.icon}
+                index={idx}
                 linkHref="/services"
                 linkLabel="Learn more"
               />
