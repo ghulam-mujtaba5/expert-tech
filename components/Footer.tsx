@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Mail, Phone, MapPin, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { company, navLinks } from '@/data/company';
 
@@ -14,30 +13,22 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-12">
           {/* Brand & Mission Column */}
           <div className="space-y-4 lg:col-span-4">
-            <Link href="/" className="inline-block focus:outline-none focus:ring-2 focus:ring-[#2f80ed] rounded-lg">
-              <div className="relative h-11 w-48">
-                <Image
-                  src="/logo-white.svg"
-                  alt={company.name}
-                  fill
-                  sizes="200px"
-                  className="object-contain object-left"
-                />
-              </div>
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#2f80ed] rounded-lg group"
+              aria-label={`${company.name} Home`}
+            >
+              <span className="font-heading text-2xl font-bold tracking-tight text-white transition-colors group-hover:text-[#38bdf8]">
+                EXPERT <span className="text-[#2f80ed]">TECH</span>
+              </span>
             </Link>
             <p className="text-sm leading-relaxed text-white/80 max-w-sm">
               {company.tagline}
             </p>
 
             <div className="flex items-center gap-3 pt-2">
-              <div className="relative h-12 w-12 shrink-0">
-                <Image
-                  src="/images/scotland-seal.svg"
-                  alt="Registered in Scotland"
-                  fill
-                  sizes="48px"
-                  className="object-contain"
-                />
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-[#38bdf8]">
+                <ShieldCheck className="h-5 w-5" />
               </div>
               <div className="flex flex-col text-xs text-white/75">
                 <span className="font-semibold text-white">Registered Scottish Enterprise</span>
