@@ -89,7 +89,6 @@ export default function RootLayout({
         <meta charSet="utf-8" />
       </head>
       <body className="flex min-h-screen flex-col bg-white font-sans text-brand-navy antialiased">
-        <Preloader />
         <Suspense fallback={null}>
           <NavigationProgressBar />
         </Suspense>
