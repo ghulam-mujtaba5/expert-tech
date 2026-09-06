@@ -14,6 +14,7 @@ import {
   LucideIcon,
 } from 'lucide-react';
 import ServiceIcon from './ServiceIcon';
+import LottiePlayer from './LottiePlayer';
 import styles from './ServiceCard.module.css';
 
 export type ServiceIconType =
@@ -55,6 +56,46 @@ export interface ServiceCardProps {
   className?: string;
   compact?: boolean;
   index?: number;
+  lottieSrc?: string;
+}
+
+/** Resolves the appropriate Lottie animation JSON file matching Megicode's pack */
+function resolveLottie(
+  lottieSrc?: string,
+  id?: string,
+  icon?: ServiceIconType | LucideIcon,
+  title?: string
+): string {
+  if (lottieSrc) return lottieSrc;
+
+  const key = `${id || ''} ${typeof icon === 'string' ? icon : ''} ${title || ''}`.toLowerCase();
+
+  if (key.includes('support') || key.includes('helpdesk') || key.includes('consulting')) {
+    return '/lottie/security-it.json';
+  }
+  if (key.includes('cloud') || key.includes('devops')) {
+    return '/lottie/cloud-devops.json';
+  }
+  if (key.includes('software') || key.includes('app dev') || key.includes('smartphone')) {
+    return '/lottie/web-coding.json';
+  }
+  if (key.includes('web') || key.includes('design') || key.includes('ui-ux')) {
+    return '/lottie/14_uiux_web_design.json';
+  }
+  if (key.includes('security') || key.includes('shield') || key.includes('compliance')) {
+    return '/lottie/06_cybersecurity_trust.json';
+  }
+  if (key.includes('network') || key.includes('automation') || key.includes('systems')) {
+    return '/lottie/automation-gears.json';
+  }
+  if (key.includes('data') || key.includes('analytics')) {
+    return '/lottie/analytics-data.json';
+  }
+  if (key.includes('ai') || key.includes('brain')) {
+    return '/lottie/ai-brain.json';
+  }
+
+  return '/lottie/security-it.json';
 }
 
 export default function ServiceCard({
@@ -68,31 +109,49 @@ export default function ServiceCard({
   badge,
   className = '',
   index = 0,
+  lottieSrc,
 }: ServiceCardProps) {
   const isStringIcon = typeof icon === 'string';
   const IconComponent = !isStringIcon ? icon : iconMap[icon] || Code;
+  const lottieAnimationSrc = resolveLottie(lottieSrc, id, icon, title);
 
   return (
     <div
       id={id}
       className={`group ${styles.card} ${className}`}
     >
+      {/* Megicode top animated shimmer gradient accent bar */}
+      <div className={styles.accentBar} />
+
+      {/* Megicode corner ambient radial glow */}
+      <span className={styles.revealGlow} aria-hidden="true" />
+
       <div className={styles.cardBody}>
         <div>
-          {/* Header row: 3D Illustration Icon & Optional Badge */}
+          {/* Header row: 3D Illustration Icon & Optional Badge / Index Pill */}
           <div className="flex items-center justify-between">
-            {isStringIcon ? (
-              <ServiceIcon slug={icon} index={index} />
-            ) : (
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#c9d8ee]/60 text-[#174076] transition-transform duration-200 group-hover:scale-105 shadow-sm border border-[#174076]/10">
-                <IconComponent className="h-7 w-7 stroke-[#174076]" />
-              </div>
-            )}
-            {badge && (
-              <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[#174076] shadow-sm border border-black/5 tracking-wide">
-                {badge}
-              </span>
-            )}
+            <div className="flex items-center gap-3">
+              {isStringIcon ? (
+                <ServiceIcon slug={icon} index={index} />
+              ) : (
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#c9d8ee]/60 text-[#174076] transition-transform duration-200 group-hover:scale-105 shadow-sm border border-[#174076]/10">
+                  <IconComponent className="h-7 w-7 stroke-[#174076]" />
+                </div>
+              )}
+            </div>
+
+            <div className="flex items-center gap-2">
+              {badge && (
+                <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[#174076] shadow-sm border border-black/5 tracking-wide">
+                  {badge}
+                </span>
+              )}
+              {typeof index === 'number' && (
+                <span className={styles.indexPill} aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+              )}
+            </div>
           </div>
 
           {/* Title */}
@@ -111,7 +170,7 @@ export default function ServiceCard({
               {features.map((feat, idx) => (
                 <li
                   key={idx}
-                  className="flex items-start gap-2 text-xs sm:text-sm text-[#1d1e20]/85"
+                  className="flex items-start gap-2 text-xs sm:text-sm text-[#1d1e20]/85 transition-transform duration-200 group-hover:translate-x-0.5"
                 >
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#2f80ed]" />
                   <span>{feat}</span>
@@ -121,9 +180,9 @@ export default function ServiceCard({
           )}
         </div>
 
-        {/* Action Link */}
-        {linkHref && (
-          <div className="mt-6 border-t border-black/5 pt-4">
+        {/* Action Link & Corner Lottie Animation */}
+        <div className="relative mt-6 flex items-center justify-between border-t border-black/5 pt-4">
+          {linkHref && (
             <Link
               href={linkHref}
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#174076] transition-colors hover:text-[#2f80ed]"
@@ -131,8 +190,20 @@ export default function ServiceCard({
               <span>{linkLabel}</span>
               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
             </Link>
-          </div>
-        )}
+          )}
+
+          {/* Megicode signature hover-revealed Lottie animation from JSON */}
+          <span className={styles.cardIllus} aria-hidden="true">
+            <LottiePlayer
+              src={lottieAnimationSrc}
+              loop
+              autoplay
+              pauseWhenHidden
+              speed={0.7}
+              style={{ width: 104, height: 104 }}
+            />
+          </span>
+        </div>
       </div>
     </div>
   );

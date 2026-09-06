@@ -5,7 +5,6 @@ import { Suspense } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingCta from '@/components/FloatingCta';
-import Preloader from '@/components/Preloader';
 import NavigationProgressBar from '@/components/NavigationProgressBar';
 import { company } from '@/data/company';
 
