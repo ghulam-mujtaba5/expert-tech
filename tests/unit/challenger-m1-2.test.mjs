@@ -33,7 +33,6 @@ console.log('Suite 1: Route Invariants & Header Navigation');
 const plannedRoutes = [
   '/',
   '/services',
-  '/a-note-from-founder',
   '/reviews',
   '/careers',
   '/contact',

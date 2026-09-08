@@ -38,7 +38,6 @@ for (let i = 0; i < args.length; i++) {
 const REQUIRED_ROUTES = [
   { path: '/', name: 'Home' },
   { path: '/services', name: 'Services' },
-  { path: '/a-note-from-founder', name: 'A Note from Founder' },
   { path: '/reviews', name: 'Reviews' },
   { path: '/careers', name: 'Careers' },
   { path: '/contact', name: 'Contact' },
@@ -161,7 +160,6 @@ async function main() {
       const routeKeys = {
         '/': 'homeContent',
         '/services': 'servicesContent',
-        '/a-note-from-founder': 'founderContent',
         '/reviews': 'reviewsContent',
         '/careers': 'careersContent',
         '/contact': 'contactContent',

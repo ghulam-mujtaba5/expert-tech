@@ -167,7 +167,6 @@ console.log('\n[5] Pages Heading Hierarchy & Brand Assets:');
 const pages = [
   { file: 'app/page.tsx', name: 'Home' },
   { file: 'app/services/page.tsx', name: 'Services' },
-  { file: 'app/a-note-from-founder/page.tsx', name: 'Founder Note' },
   { file: 'app/reviews/page.tsx', name: 'Reviews' },
   { file: 'app/careers/page.tsx', name: 'Careers' },
   { file: 'app/contact/page.tsx', name: 'Contact' },

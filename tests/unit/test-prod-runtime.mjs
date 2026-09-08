@@ -68,7 +68,6 @@ async function run() {
       '/',
       '/services',
       '/reviews',
-      '/a-note-from-founder',
       '/refund-policy',
       '/contact',
       '/careers'

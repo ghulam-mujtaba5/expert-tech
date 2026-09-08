@@ -74,12 +74,6 @@ export default function NotFound() {
                 Services Overview
               </Link>
               <Link
-                href="/a-note-from-founder"
-                className="p-3 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/10 text-center text-white/90"
-              >
-                Note from Founder
-              </Link>
-              <Link
                 href="/reviews"
                 className="p-3 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/10 text-center text-white/90"
               >

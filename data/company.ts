@@ -51,7 +51,6 @@ export const navLinks: NavItem[] = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "Reviews", href: "/reviews" },
-  { name: "A Note from Founder", href: "/a-note-from-founder" },
   { name: "Refund Policy", href: "/refund-policy" },
   { name: "Contact", href: "/contact" },
   { name: "Careers", href: "/careers" },

@@ -15,10 +15,11 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      { source: '/about', destination: '/a-note-from-founder', permanent: false },
-      { source: '/about-us', destination: '/a-note-from-founder', permanent: false },
-      { source: '/founder', destination: '/a-note-from-founder', permanent: false },
-      { source: '/our-team', destination: '/a-note-from-founder', permanent: false },
+      { source: '/a-note-from-founder', destination: '/', permanent: false },
+      { source: '/about', destination: '/', permanent: false },
+      { source: '/about-us', destination: '/', permanent: false },
+      { source: '/founder', destination: '/', permanent: false },
+      { source: '/our-team', destination: '/', permanent: false },
       { source: '/privacy', destination: '/refund-policy', permanent: false },
       { source: '/privacy-policy', destination: '/refund-policy', permanent: false },
       { source: '/terms', destination: '/refund-policy', permanent: false },

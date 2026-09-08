@@ -20,12 +20,6 @@ suite.test('T3-NAV02: Navigating to Services (/services) renders Services Overvi
   assert(hasText(page.html, SPEC.company.name), 'Services page must render company branding');
 });
 
-suite.test('T3-NAV03: Navigating to A Note from Founder (/a-note-from-founder) renders Founder Note and Shell', async () => {
-  const page = await getPage('/a-note-from-founder');
-  assert(page.statusCode === 200 || page.exists, 'Founder route must be accessible');
-  assert(hasText(page.html, SPEC.company.name), 'Founder page must render company branding');
-});
-
 suite.test('T3-NAV04: Navigating to Reviews (/reviews) renders Reviews Testimonials and Shell', async () => {
   const page = await getPage('/reviews');
   assert(page.statusCode === 200 || page.exists, 'Reviews route must be accessible');

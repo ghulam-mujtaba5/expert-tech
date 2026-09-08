@@ -122,45 +122,6 @@ export const servicesContent = {
   },
 };
 
-export const founderContent = {
-  hero: {
-    founderName: "Milon Mahmud",
-    founderTitle: "Founder & IT Director",
-    founderBio: "Milon Mahmud, an IT expert and UK-based entrepreneur whose journey from international student to business owner reflects dedication, growth, and innovation.",
-    founderQuote: "You try and believe, things just happen!",
-  },
-  manifesto: {
-    overline: "Our Philosophy",
-    title: "Technology that works, quietly.",
-    description: "We believe technology should quiet the noise of running a business, not add to it. Our systems are designed, deployed, and maintained to provide seamless operation and peace of mind.",
-  },
-  principles: {
-    overline: "Our Principles",
-    title: "Foundations of Trust",
-    subtitle: `${company.name} operates on core values that ensure absolute transparency, client-first delivery, and unwavering reliability for every UK business we serve.`,
-    items: [
-      {
-        id: "client-first",
-        title: "Client-First Approach",
-        description: "Your business objectives drive our technical solutions. We prioritize your needs with dedicated support and proactive problem-solving.",
-        icon: "user-check" as const,
-      },
-      {
-        id: "transparent",
-        title: "Transparent Operations",
-        description: "Clear communication and straightforward pricing ensure you always understand our process and what you're paying for. No hidden fees or jargon.",
-        icon: "book-open" as const,
-      },
-      {
-        id: "uk-compliant",
-        title: "UK-Compliant Delivery",
-        description: "All our services and infrastructure adhere strictly to UK regulations, providing secure and reliable operations tailored for your local market.",
-        icon: "shield" as const,
-      },
-    ],
-  },
-};
-
 export const reviewsContent = {
   hero: {
     overline: "Client Feedback",

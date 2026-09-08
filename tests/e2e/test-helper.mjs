@@ -40,7 +40,6 @@ export const SPEC = {
   routes: [
     { path: '/', name: 'Home' },
     { path: '/services', name: 'Services' },
-    { path: '/a-note-from-founder', name: 'A Note from Founder' },
     { path: '/reviews', name: 'Reviews' },
     { path: '/careers', name: 'Careers' },
     { path: '/contact', name: 'Contact' },
