@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   description:
     'Explore engineering opportunities at Expert Tech. We hire talented Cloud, DevOps, Full-Stack, and Systems Engineers across Scotland and the UK.',
   alternates: {
-    canonical: 'https://experttech.co.uk/careers',
+    canonical: 'https://www.experttech.uk.com/careers',
   },
   openGraph: {
     title: 'Engineering Careers & Opportunities in the UK | Expert Tech',
     description:
       'Join our collaborative UK engineering team delivering proactive technology solutions to growing organizations.',
-    url: 'https://experttech.co.uk/careers',
+    url: 'https://www.experttech.uk.com/careers',
     siteName: company.name,
     locale: 'en_GB',
     type: 'website',

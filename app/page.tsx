@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description:
     'Expert Tech delivers proactive managed IT support, cloud solutions, and bespoke software for UK businesses with a 15-minute response SLA and 99.9% uptime assurance.',
   alternates: {
-    canonical: 'https://experttech.co.uk',
+    canonical: 'https://www.experttech.uk.com',
   },
 };
 

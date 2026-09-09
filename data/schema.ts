@@ -1,6 +1,6 @@
 import { company } from './company';
 
-export const SITE_URL = 'https://experttech.co.uk';
+export const SITE_URL = 'https://www.experttech.uk.com';
 
 /**
  * Breadcrumb item definition

@@ -13,13 +13,13 @@ export const metadata: Metadata = {
   description:
     'Read authentic 5.0-star reviews from verified UK retainer clients for Expert Tech. Proactive managed IT support, cloud solutions, and software development.',
   alternates: {
-    canonical: 'https://experttech.co.uk/reviews',
+    canonical: 'https://www.experttech.uk.com/reviews',
   },
   openGraph: {
     title: 'Client Reviews & Verified Google Testimonials | Expert Tech',
     description:
       '5.0-star rating from verified UK retainer clients. Discover how Expert Tech empowers British businesses.',
-    url: 'https://experttech.co.uk/reviews',
+    url: 'https://www.experttech.uk.com/reviews',
     siteName: company.name,
     locale: 'en_GB',
     type: 'website',

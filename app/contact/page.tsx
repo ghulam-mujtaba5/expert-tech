@@ -23,13 +23,13 @@ export const metadata: Metadata = {
   description:
     'Connect directly with our UK-based systems engineers. Proactive IT support, cloud consultations, and emergency dispatch with a guaranteed 15-minute SLA.',
   alternates: {
-    canonical: 'https://experttech.co.uk/contact',
+    canonical: 'https://www.experttech.uk.com/contact',
   },
   openGraph: {
     title: 'Contact & 24/7 Technical Escalation Desk | Expert Tech',
     description:
       'Connect directly with our UK-based systems engineers with guaranteed 15-minute turnaround.',
-    url: 'https://experttech.co.uk/contact',
+    url: 'https://www.experttech.uk.com/contact',
     siteName: company.name,
     locale: 'en_GB',
     type: 'website',

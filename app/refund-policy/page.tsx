@@ -15,13 +15,13 @@ export const metadata: Metadata = {
   description:
     'Comprehensive statutory rights, cooling-off terms, and refund policy for Expert Tech services under Scottish jurisdiction and UK consumer protection law.',
   alternates: {
-    canonical: 'https://experttech.co.uk/refund-policy',
+    canonical: 'https://www.experttech.uk.com/refund-policy',
   },
   openGraph: {
     title: 'Refund & Cancellation Policy | Statutory Rights & Terms | Expert Tech',
     description:
       'Understanding your statutory rights, 14-day cooling-off periods, and Scottish jurisdiction terms.',
-    url: 'https://experttech.co.uk/refund-policy',
+    url: 'https://www.experttech.uk.com/refund-policy',
     siteName: company.name,
     locale: 'en_GB',
     type: 'website',

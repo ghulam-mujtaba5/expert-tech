@@ -20,13 +20,13 @@ export const metadata: Metadata = {
   description:
     'Comprehensive IT solutions for UK businesses: Managed IT support, cloud solutions, bespoke software development, cybersecurity, and systems architecture with 15-minute response SLA.',
   alternates: {
-    canonical: 'https://experttech.co.uk/services',
+    canonical: 'https://www.experttech.uk.com/services',
   },
   openGraph: {
     title: 'Comprehensive Managed IT & Custom Software Services | Expert Tech',
     description:
       'Proactive managed IT, cloud migrations, bespoke software, and cybersecurity designed for UK enterprise uptime.',
-    url: 'https://experttech.co.uk/services',
+    url: 'https://www.experttech.uk.com/services',
     siteName: company.name,
     locale: 'en_GB',
     type: 'website',

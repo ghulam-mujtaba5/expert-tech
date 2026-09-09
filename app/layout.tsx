@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import { Sora, IBM_Plex_Sans, Lobster } from 'next/font/google';
 import './globals.css';
 import { Suspense } from 'react';
@@ -50,9 +51,12 @@ export const metadata: Metadata = {
     template: `%s | ${company.name}`,
   },
   description: `${company.tagline} Registered office: ${company.address.town}, ${company.address.region}. Telephone: ${company.phone}`,
-  metadataBase: new URL('https://experttech.co.uk'),
+  metadataBase: new URL('https://www.experttech.uk.com'),
   alternates: {
-    canonical: 'https://experttech.co.uk',
+    canonical: 'https://www.experttech.uk.com',
+  },
+  verification: {
+    google: '0FhFqO42hqiBsANCD2yAtEaGZ8ODbRFI3znIydGinGQ',
   },
   keywords: [
     'Managed IT Services',
@@ -66,7 +70,7 @@ export const metadata: Metadata = {
     'Edinburgh IT Services',
     '24/7 IT Helpdesk',
   ],
-  authors: [{ name: company.name, url: 'https://experttech.co.uk' }],
+  authors: [{ name: company.name, url: 'https://www.experttech.uk.com' }],
   creator: company.name,
   publisher: company.name,
   icons: {
@@ -80,7 +84,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${company.name} | Proactive Managed IT & Custom Software`,
     description: company.tagline,
-    url: 'https://experttech.co.uk',
+    url: 'https://www.experttech.uk.com',
     siteName: company.name,
     locale: 'en_GB',
     type: 'website',
@@ -126,6 +130,18 @@ export default function RootLayout({
         <SchemaMarkup schema={generateWebSiteSchema()} />
       </head>
       <body className="flex min-h-screen flex-col bg-white font-sans text-brand-navy antialiased">
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-2GZ9E08RNY"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-2GZ9E08RNY');
+          `}
+        </Script>
         <Preloader />
         <Suspense fallback={null}>
           <NavigationProgressBar />
