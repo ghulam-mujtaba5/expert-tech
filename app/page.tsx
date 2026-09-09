@@ -1,14 +1,30 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import type { Metadata } from 'next';
+import { ArrowRight, ShieldCheck, Zap, Server, MapPin } from 'lucide-react';
 import SectionContainer from '@/components/SectionContainer';
 import HeroSection from '@/components/HeroSection';
 import ServiceCard from '@/components/ServiceCard';
 import CtaBanner from '@/components/CtaBanner';
+import SchemaMarkup from '@/components/SchemaMarkup';
 import { company } from '@/data/company';
 import { homeContent } from '@/data/content';
+import { generateServicesCatalogSchema, generateBreadcrumbSchema } from '@/data/schema';
+
+export const metadata: Metadata = {
+  title: 'Managed IT Services & Custom Software UK',
+  description:
+    'Expert Tech delivers proactive managed IT support, cloud solutions, and bespoke software for UK businesses with a 15-minute response SLA and 99.9% uptime assurance.',
+  alternates: {
+    canonical: 'https://experttech.co.uk',
+  },
+};
 
 export default function HomePage() {
   const { hero, solutions, ctaBanner } = homeContent;
+
+  const homeBreadcrumb = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+  ]);
 
   return (
     <div className="flex flex-col">
@@ -65,6 +81,73 @@ export default function HomePage() {
           </div>
         </SectionContainer>
       </section>
+
+      {/* AI SEO (AEO) & GEO Answer Block */}
+      <section
+        id="overview"
+        className="scroll-mt-24 bg-[#ebecef]/50 py-16 sm:py-20 border-t border-black/5"
+        aria-label="Direct Business Overview"
+      >
+        <SectionContainer>
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="text-xs font-semibold uppercase tracking-widest text-[#2f80ed]">
+              UK Technology Partner
+            </span>
+            <h2 className="mt-2 font-heading text-2xl font-semibold text-[#0b1c3d] sm:text-3xl">
+              Why Forward-Thinking Businesses Rely on {company.name}
+            </h2>
+            <p className="mt-3 text-sm sm:text-base leading-relaxed text-[#1d1e20]/80">
+              We eliminate IT complexity through proactive monitoring, rapid technical response, and custom software designed for resilience.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-2xl bg-white p-6 shadow-sm border border-black/5">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#c9d8ee] text-[#174076]">
+                <Zap className="h-5 w-5" />
+              </div>
+              <h3 className="mt-4 font-heading text-base font-bold text-[#0b1c3d]">15-Min Response SLA</h3>
+              <p className="mt-2 text-xs leading-relaxed text-[#1d1e20]/75">
+                Guaranteed emergency ticket review and triage by a named UK systems engineer within 15 minutes.
+              </p>
+            </div>
+
+            <div className="rounded-2xl bg-white p-6 shadow-sm border border-black/5">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#c9d8ee] text-[#174076]">
+                <Server className="h-5 w-5" />
+              </div>
+              <h3 className="mt-4 font-heading text-base font-bold text-[#0b1c3d]">99.9% Uptime Assurance</h3>
+              <p className="mt-2 text-xs leading-relaxed text-[#1d1e20]/75">
+                24/7 proactive health monitoring across servers, cloud workloads, and networks to prevent outages.
+              </p>
+            </div>
+
+            <div className="rounded-2xl bg-white p-6 shadow-sm border border-black/5">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#c9d8ee] text-[#174076]">
+                <ShieldCheck className="h-5 w-5" />
+              </div>
+              <h3 className="mt-4 font-heading text-base font-bold text-[#0b1c3d]">UK Data Sovereignty</h3>
+              <p className="mt-2 text-xs leading-relaxed text-[#1d1e20]/75">
+                100% UK tier-4 data centers (AWS London, Azure UK South), fully aligned with UK GDPR &amp; Cyber Essentials.
+              </p>
+            </div>
+
+            <div className="rounded-2xl bg-white p-6 shadow-sm border border-black/5">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#c9d8ee] text-[#174076]">
+                <MapPin className="h-5 w-5" />
+              </div>
+              <h3 className="mt-4 font-heading text-base font-bold text-[#0b1c3d]">Scottish Headquarters</h3>
+              <p className="mt-2 text-xs leading-relaxed text-[#1d1e20]/75">
+                Headquartered at Cowdenbeath, Scotland, serving businesses throughout Fife, Edinburgh, and nationwide UK.
+              </p>
+            </div>
+          </div>
+        </SectionContainer>
+      </section>
+
+      {/* JSON-LD Schemas */}
+      <SchemaMarkup schema={homeBreadcrumb} />
+      <SchemaMarkup schema={generateServicesCatalogSchema()} />
 
       {/* Discovery Call CTA Banner */}
       <CtaBanner

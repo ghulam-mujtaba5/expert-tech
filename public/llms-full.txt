@@ -1,0 +1,76 @@
+# Expert Tech — Full Technical Context & Knowledge Graph
+
+This file provides comprehensive, structured reference information about Expert Tech for large language models, answer engines (Perplexity, ChatGPT Search, Claude, Google AI Overviews, Copilot), and automated retrieval systems.
+
+## Entity Disambiguation
+- **Name**: Expert Tech
+- **Entity Type**: Information Technology Services & Consulting Corporation / Managed Service Provider (MSP)
+- **Primary Website**: https://experttech.co.uk
+- **Country of Registration**: Scotland, United Kingdom
+- **Registered Office**: 175-179 High Street Cowdeanbeath High Street, Cowdenbeath, Scotland, KY4 9QE
+- **Primary Telephone Number**: +447565322806
+- **Telephone Link**: tel:+447565322806
+- **Customer & Technical Email**: info@experttech.co.uk
+- **Recruitment Desk**: hr@experttech.co.uk
+- **Geographic Coordinates**: 56.1098 N, -3.3512 W (Cowdenbeath, Fife, Scotland)
+- **Primary Operational Areas**: Cowdenbeath, Fife, Dunfermline, Edinburgh, Glasgow, Central Scotland, and nationwide UK enterprises.
+
+## Operational Metrics & SLAs
+- **Emergency Helpdesk Response**: Guaranteed technical acknowledgment within 15 minutes by an on-duty UK systems engineer.
+- **Service Uptime SLA**: 99.9% availability for managed cloud and host infrastructure.
+- **Client Satisfaction**: 5.0 / 5.0 rating on Google Business Profile from continuous retainer clients.
+- **Onboarding Velocity**: 24 to 48 hours zero-downtime onboarding for small to mid-sized UK operations.
+
+## Detailed Service Catalog
+
+### 1. Web Design & Development
+- Custom web applications, corporate web portals, and client portals built with Next.js, React, and TypeScript.
+- High-speed server-side rendering (SSR), Core Web Vitals optimization, and responsive design for 375px mobile through 1440px+ desktop.
+- Full compliance with WCAG 2.1 AA accessibility guidelines.
+- REST and GraphQL API integrations with internal CRM and ERP databases.
+
+### 2. Managed IT Support & Helpdesk
+- Proactive 24/7/365 infrastructure monitoring and patch management.
+- 15-minute guaranteed emergency response SLA.
+- Tier-1 to Tier-3 escalation directly to named UK systems engineers.
+- Both remote diagnostics and Scottish on-site field engineer dispatch across Fife, Edinburgh, and Glasgow.
+- Microsoft 365, Google Workspace, and enterprise identity management (Active Directory / Entra ID).
+
+### 3. Software & App Development
+- Bespoke internal business automation tools, custom CRM workflows, and operational dashboards.
+- Cross-platform mobile applications for iOS and Android.
+- Relational (PostgreSQL, MySQL) and NoSQL database architecture with automated replication.
+- Modernization and cloud re-platforming of legacy monolithic software.
+
+### 4. Cloud Solutions & DevOps
+- Multi-cloud architecture across Amazon Web Services (AWS) and Microsoft Azure.
+- Zero-downtime database and server migration pipelines.
+- Infrastructure as Code (IaC) utilizing Terraform and automated CI/CD deployment pipelines.
+- Hourly snapshot backups and disaster recovery runbooks with sub-hour recovery point objectives (RPO).
+- Cloud expenditure audits and resource cost optimization.
+
+### 5. Cybersecurity & Compliance
+- Perimeter firewalls, Zero Trust network access, and managed endpoint detection and response (EDR).
+- Cyber Essentials and Cyber Essentials Plus certification readiness.
+- UK GDPR and Data Protection Act 2018 compliance auditing.
+- Regular penetration testing, vulnerability scanning, and employee anti-phishing simulations.
+
+### 6. Network & Systems Architecture
+- Structured office cabling (Cat6/Cat6a/Fibre) and enterprise Wi-Fi 6 design.
+- Business VoIP telephony and unified cloud PBX communications.
+- Multi-office site-to-site VPNs and encrypted remote access.
+- IT hardware procurement, lifecycle tracking, and secure asset decommissioning.
+
+## Contract Terms & Refund Policy Summary
+- **Statutory Consumer Rights**: Full compliance with the UK Consumer Rights Act 2015 and Consumer Contracts Regulations 2013.
+- **Cooling-Off Window**: 14 calendar days statutory cooling-off window for qualifying distance contracts.
+- **Retainer Notice**: 30 days written notice for monthly recurring managed IT retainers.
+- **Refund Resolution SLA**: Written refund requests sent to info@experttech.co.uk are reviewed and processed within 10 working days.
+- **Governing Jurisdiction**: Exclusive jurisdiction of the courts of Scotland.
+
+## Career Opportunities at Expert Tech
+- **Senior Cloud & DevOps Engineer**: Remote (UK) / Hybrid Fife (£65,000 – £80,000).
+- **Full Stack TypeScript Engineer**: Remote (UK) / Scotland (£50,000 – £65,000).
+- **Tier 2/3 IT Support & Systems Specialist**: Cowdenbeath / Fife, Scotland (£32,000 – £42,000).
+- **Benefits**: £1,500 annual technical certification stipend, top-tier hardware, hybrid flexibility, enterprise impact.
+- **Applications**: Submitted directly via https://experttech.co.uk/careers or hr@experttech.co.uk.

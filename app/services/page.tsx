@@ -6,13 +6,37 @@ import HeroSection from '@/components/HeroSection';
 import ServiceCard from '@/components/ServiceCard';
 import CtaBanner from '@/components/CtaBanner';
 import FaqAccordion from '@/components/FaqAccordion';
+import Breadcrumb from '@/components/Breadcrumb';
+import SchemaMarkup from '@/components/SchemaMarkup';
 import { company } from '@/data/company';
 import { servicesContent } from '@/data/content';
+import {
+  generateBreadcrumbSchema,
+  generateServicesCatalogSchema,
+} from '@/data/schema';
 
 export const metadata: Metadata = {
-  title: 'Services',
+  title: 'Comprehensive Managed IT & Custom Software Services',
   description:
-    'Comprehensive IT solutions for UK businesses: Managed IT support, cloud solutions, bespoke software development, cybersecurity, and systems architecture.',
+    'Comprehensive IT solutions for UK businesses: Managed IT support, cloud solutions, bespoke software development, cybersecurity, and systems architecture with 15-minute response SLA.',
+  alternates: {
+    canonical: 'https://experttech.co.uk/services',
+  },
+  openGraph: {
+    title: 'Comprehensive Managed IT & Custom Software Services | Expert Tech',
+    description:
+      'Proactive managed IT, cloud migrations, bespoke software, and cybersecurity designed for UK enterprise uptime.',
+    url: 'https://experttech.co.uk/services',
+    siteName: company.name,
+    locale: 'en_GB',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Comprehensive Managed IT & Custom Software Services | Expert Tech',
+    description:
+      'Proactive managed IT, cloud migrations, bespoke software, and cybersecurity designed for UK enterprise uptime.',
+  },
 };
 
 const detailedServices = [
@@ -138,8 +162,28 @@ const consultationSteps = [
 export default function ServicesPage() {
   const { hero, ctaBanner } = servicesContent;
 
+  const breadcrumbs = [
+    { label: 'Services', href: '/services' },
+  ];
+
+  const breadcrumbsSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/services' },
+  ]);
+
   return (
     <div className="flex flex-col">
+      {/* Visual Breadcrumb Navigation */}
+      <div className="bg-[#0b1c3d] border-b border-white/10">
+        <SectionContainer>
+          <Breadcrumb items={breadcrumbs} variant="dark" />
+        </SectionContainer>
+      </div>
+
+      {/* JSON-LD Schemas */}
+      <SchemaMarkup schema={breadcrumbsSchema} />
+      <SchemaMarkup schema={generateServicesCatalogSchema()} />
+
       {/* Services Hero Section using unified HeroSection */}
       <HeroSection
         id="services-hero"

@@ -9,6 +9,12 @@ import BackToTop from '@/components/BackToTop';
 import NavigationProgressBar from '@/components/NavigationProgressBar';
 import Preloader from '@/components/Preloader';
 import { company } from '@/data/company';
+import SchemaMarkup from '@/components/SchemaMarkup';
+import {
+  generateOrganizationSchema,
+  generateLocalBusinessSchema,
+  generateWebSiteSchema,
+} from '@/data/schema';
 
 const sora = Sora({
   subsets: ['latin'],
@@ -45,6 +51,9 @@ export const metadata: Metadata = {
   },
   description: `${company.tagline} Registered office: ${company.address.town}, ${company.address.region}. Telephone: ${company.phone}`,
   metadataBase: new URL('https://experttech.co.uk'),
+  alternates: {
+    canonical: 'https://experttech.co.uk',
+  },
   keywords: [
     'Managed IT Services',
     'Cloud Solutions',
@@ -52,8 +61,14 @@ export const metadata: Metadata = {
     'IT Support UK',
     'Scotland IT Services',
     'Cowdenbeath IT',
+    'Fife IT Support',
+    'Cybersecurity UK',
+    'Edinburgh IT Services',
+    '24/7 IT Helpdesk',
   ],
-  authors: [{ name: company.name }],
+  authors: [{ name: company.name, url: 'https://experttech.co.uk' }],
+  creator: company.name,
+  publisher: company.name,
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
@@ -75,6 +90,23 @@ export const metadata: Metadata = {
     title: `${company.name} | Proactive Managed IT & Custom Software`,
     description: company.tagline,
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  other: {
+    'geo.region': 'GB-FIF',
+    'geo.placename': 'Cowdenbeath, Scotland',
+    'geo.position': '56.1098;-3.3512',
+    'ICBM': '56.1098, -3.3512',
+  },
 };
 
 export default function RootLayout({
@@ -89,6 +121,9 @@ export default function RootLayout({
     >
       <head>
         <meta charSet="utf-8" />
+        <SchemaMarkup schema={generateOrganizationSchema()} />
+        <SchemaMarkup schema={generateLocalBusinessSchema()} />
+        <SchemaMarkup schema={generateWebSiteSchema()} />
       </head>
       <body className="flex min-h-screen flex-col bg-white font-sans text-brand-navy antialiased">
         <Preloader />

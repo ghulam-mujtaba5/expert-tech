@@ -1,22 +1,63 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import SectionContainer from '@/components/SectionContainer';
 import HeroSection from '@/components/HeroSection';
 import CtaBanner from '@/components/CtaBanner';
+import Breadcrumb from '@/components/Breadcrumb';
+import SchemaMarkup from '@/components/SchemaMarkup';
 import { company } from '@/data/company';
 import { refundPolicyContent } from '@/data/content';
+import { generateBreadcrumbSchema } from '@/data/schema';
 import { Clock, Mail, Scale } from 'lucide-react';
 
-export const metadata = {
-  title: 'Refund & Cancellation Policy | Expert Tech',
+export const metadata: Metadata = {
+  title: 'Refund & Cancellation Policy | Statutory Rights & Terms',
   description:
-    'Comprehensive statutory rights, cancellation terms, and refund policy for Expert Tech services under Scottish jurisdiction and UK consumer law.',
+    'Comprehensive statutory rights, cooling-off terms, and refund policy for Expert Tech services under Scottish jurisdiction and UK consumer protection law.',
+  alternates: {
+    canonical: 'https://experttech.co.uk/refund-policy',
+  },
+  openGraph: {
+    title: 'Refund & Cancellation Policy | Statutory Rights & Terms | Expert Tech',
+    description:
+      'Understanding your statutory rights, 14-day cooling-off periods, and Scottish jurisdiction terms.',
+    url: 'https://experttech.co.uk/refund-policy',
+    siteName: company.name,
+    locale: 'en_GB',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Refund & Cancellation Policy | Statutory Rights & Terms | Expert Tech',
+    description:
+      'Understanding your statutory rights, 14-day cooling-off periods, and Scottish jurisdiction terms.',
+  },
 };
 
 export default function RefundPolicyPage() {
   const { hero } = refundPolicyContent;
 
+  const breadcrumbs = [
+    { label: 'Refund Policy', href: '/refund-policy' },
+  ];
+
+  const breadcrumbsSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Refund Policy', url: '/refund-policy' },
+  ]);
+
   return (
     <div className="flex flex-col bg-white text-[#0b1c3d]">
+      {/* Visual Breadcrumb Navigation */}
+      <div className="bg-[#0b1c3d] border-b border-white/10">
+        <SectionContainer>
+          <Breadcrumb items={breadcrumbs} variant="dark" />
+        </SectionContainer>
+      </div>
+
+      {/* JSON-LD Schema */}
+      <SchemaMarkup schema={breadcrumbsSchema} />
+
       {/* Brand Hero Section */}
       <HeroSection
         id="hero"

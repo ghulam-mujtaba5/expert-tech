@@ -1,0 +1,44 @@
+# Expert Tech
+
+> Expert Tech provides proactive managed IT support, cloud solutions, cybersecurity, and bespoke software engineering for businesses across Scotland and the United Kingdom. Registered in Scotland with headquarters in Cowdenbeath, Fife.
+
+## Company Overview
+- **Legal Name**: Expert Tech
+- **Jurisdiction**: Registered in Scotland
+- **Headquarters Address**: 175-179 High Street Cowdeanbeath High Street, Cowdenbeath, Scotland, KY4 9QE
+- **Primary Telephone**: +447565322806
+- **General Inquiries**: info@experttech.co.uk
+- **Careers & Recruitment**: hr@experttech.co.uk
+- **Website**: https://experttech.co.uk
+
+## Key Technical Commitments & SLAs
+- **Average Emergency Response SLA**: 15 minutes guaranteed for priority incidents.
+- **Uptime Assurance**: 99.9% infrastructure availability SLA.
+- **Monitoring**: 24/7/365 proactive automated endpoint, server, and network health tracking.
+- **Data Sovereignty**: 100% UK data residency (AWS London, Microsoft Azure UK South, UK sovereign private clouds), fully compliant with UK GDPR and the Data Protection Act 2018.
+- **Contracts**: Transparent rolling monthly agreements with 30-day notice; milestone-based custom software delivery.
+
+## Core Services
+- [Managed IT Support & Helpdesk](https://experttech.co.uk/services): Proactive remote diagnostics, 15-minute SLA triage, on-site Scottish escalation, Microsoft 365 administration.
+- [Cloud Solutions & DevOps](https://experttech.co.uk/services): AWS and Azure architecture, zero-downtime data migration, automated disaster recovery, hourly backups, cost optimization.
+- [Web Design & Development](https://experttech.co.uk/services): Next.js, React, TypeScript, secure API integrations, WCAG 2.1 accessibility, SEO optimization.
+- [Software & App Development](https://experttech.co.uk/services): Bespoke internal CRM systems, workflow automation, iOS and Android apps, database architecture.
+- [Cybersecurity & Compliance](https://experttech.co.uk/services): Perimeter defense, vulnerability audits, Cyber Essentials alignment, UK GDPR governance.
+- [Network & Systems Architecture](https://experttech.co.uk/services): Structured cabling, enterprise Wi-Fi, VoIP telephony, secure site-to-site VPNs.
+
+## Verified Client Reputation
+- **Google Business Rating**: 5.0 out of 5.0 stars from verified UK retainer clients.
+- **Client Portfolio**: Enterprise retainers across logistics, property management, records, and commerce.
+- [Client Reviews](https://experttech.co.uk/reviews): Read authentic Google Business reviews.
+
+## Engineering Careers
+- [Careers at Expert Tech](https://experttech.co.uk/careers): UK-based engineering team offering hybrid/remote roles, £1,500 annual training stipend, and modern tech stacks (TypeScript, Next.js, Cloud Native).
+
+## Canonical URLs
+- Home: https://experttech.co.uk/
+- Services: https://experttech.co.uk/services
+- Client Reviews: https://experttech.co.uk/reviews
+- Careers: https://experttech.co.uk/careers
+- Contact & Emergency Desk: https://experttech.co.uk/contact
+- Refund & Cancellation Terms: https://experttech.co.uk/refund-policy
+- Full LLM Context: https://experttech.co.uk/llms-full.txt

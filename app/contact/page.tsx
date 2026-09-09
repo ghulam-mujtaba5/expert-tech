@@ -1,11 +1,15 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import SectionContainer from '@/components/SectionContainer';
 import HeroSection from '@/components/HeroSection';
 import ContactForm from '@/components/ContactForm';
 import ContactInfoCards from '@/components/ContactInfoCards';
 import CtaBanner from '@/components/CtaBanner';
+import Breadcrumb from '@/components/Breadcrumb';
+import SchemaMarkup from '@/components/SchemaMarkup';
 import { company } from '@/data/company';
 import { contactContent } from '@/data/content';
+import { generateBreadcrumbSchema, generateContactPageSchema } from '@/data/schema';
 import {
   MapPin,
   Phone,
@@ -14,17 +18,55 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 
-export const metadata = {
-  title: 'Contact | Expert Tech',
+export const metadata: Metadata = {
+  title: 'Contact & 24/7 Technical Escalation Desk',
   description:
-    'Connect directly with our UK-based systems engineers. We design, deploy, and maintain robust IT infrastructure with guaranteed response times.',
+    'Connect directly with our UK-based systems engineers. Proactive IT support, cloud consultations, and emergency dispatch with a guaranteed 15-minute SLA.',
+  alternates: {
+    canonical: 'https://experttech.co.uk/contact',
+  },
+  openGraph: {
+    title: 'Contact & 24/7 Technical Escalation Desk | Expert Tech',
+    description:
+      'Connect directly with our UK-based systems engineers with guaranteed 15-minute turnaround.',
+    url: 'https://experttech.co.uk/contact',
+    siteName: company.name,
+    locale: 'en_GB',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact & 24/7 Technical Escalation Desk | Expert Tech',
+    description:
+      'Connect directly with our UK-based systems engineers with guaranteed 15-minute turnaround.',
+  },
 };
 
 export default function ContactPage() {
   const { hero, form } = contactContent;
 
+  const breadcrumbs = [
+    { label: 'Contact', href: '/contact' },
+  ];
+
+  const breadcrumbsSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Contact', url: '/contact' },
+  ]);
+
   return (
     <div className="flex flex-col bg-white text-[#0b1c3d]">
+      {/* Visual Breadcrumb Navigation */}
+      <div className="bg-[#0b1c3d] border-b border-white/10">
+        <SectionContainer>
+          <Breadcrumb items={breadcrumbs} variant="dark" />
+        </SectionContainer>
+      </div>
+
+      {/* JSON-LD Schemas */}
+      <SchemaMarkup schema={breadcrumbsSchema} />
+      <SchemaMarkup schema={generateContactPageSchema()} />
+
       {/* Brand Hero Section */}
       <HeroSection
         id="hero"
